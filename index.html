@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Drelife | Resale Investor Deck</title>
+  <meta name="description" content="Drelife investor deck focused on official resale infrastructure for fashion brands." />
+  <style>
+    :root{
+      --black:#050505;
+      --white:#ffffff;
+      --ink:#101010;
+      --muted:#888888;
+      --soft:#e9e9e9;
+      --line:#dedede;
+      --line-dark:rgba(255,255,255,.16);
+      --neon:#BEFF00;
+      --max:1360px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;background:var(--white);color:var(--ink);
+      font-family:Inter,"Helvetica Neue",Arial,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+    }
+    a{color:inherit;text-decoration:none}
+    .topbar{
+      position:fixed;inset:0 0 auto 0;z-index:30;height:68px;
+      display:flex;align-items:center;justify-content:space-between;
+      padding:0 44px;background:rgba(255,255,255,.84);backdrop-filter:blur(22px);
+      border-bottom:1px solid rgba(0,0,0,.1);
+      font-size:11px;font-weight:780;letter-spacing:.24em;text-transform:uppercase;
+    }
+    .brand{display:flex;align-items:center;gap:12px;font-size:15px;font-weight:780;letter-spacing:0;text-transform:none}
+    .dot{width:8px;height:8px;border-radius:99px;background:var(--neon);display:inline-block;border:1px solid rgba(0,0,0,.28)}
+    .progress{position:fixed;top:68px;left:0;right:0;height:2px;z-index:32;background:transparent}
+    .progress span{display:block;width:0;height:100%;background:var(--neon)}
+
+    .slide{min-height:100svh;display:flex;align-items:center;position:relative;overflow:hidden;padding:116px 0 88px;border-top:1px solid var(--line)}
+    .slide:first-of-type{border-top:0}
+    .dark{background:var(--black);color:var(--white);border-top-color:var(--line-dark)}
+    .light{background:var(--white);color:var(--ink)}
+    .container{width:min(var(--max),calc(100% - 220px));margin:0 auto;position:relative;z-index:1}
+
+    .kicker{display:flex;align-items:center;gap:14px;margin-bottom:48px;color:var(--muted);font-size:10.5px;font-weight:850;letter-spacing:.28em;text-transform:uppercase}
+    .kicker:before{content:"";display:block;width:28px;height:1px;background:currentColor}.dark .kicker{color:#aaa}
+    h1,h2,h3,p{margin:0}.hero{font-size:clamp(62px,8.4vw,138px);line-height:.91;letter-spacing:-.06em;font-weight:850;max-width:1180px}.headline{font-size:clamp(48px,6.7vw,108px);line-height:.93;letter-spacing:-.058em;font-weight:850;max-width:1120px}.italic{font-style:italic;font-weight:280;letter-spacing:-.035em}.lead{font-size:clamp(20px,2.15vw,32px);line-height:1.17;letter-spacing:-.027em;font-weight:360;color:#626262;max-width:810px}.dark .lead{color:#d2d2d2}.micro{font-size:14px;line-height:1.52;color:var(--muted);max-width:560px}.dark .micro{color:#9f9f9f}.neon{background:var(--neon);color:#070707;padding:0 .09em;box-decoration-break:clone;-webkit-box-decoration-break:clone}.neon-text{color:var(--neon)}
+
+    .split{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(390px,.78fr);gap:90px;align-items:center}.split.end{align-items:end}.stack{display:grid;gap:34px}.slide-index{position:absolute;right:44px;bottom:34px;color:var(--muted);font-size:11px;font-weight:780;letter-spacing:.18em}.dark .slide-index{color:#777}
+
+    .metric-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark);margin-top:80px}.metric{min-height:126px;padding:27px 26px 24px 0;border-right:1px solid var(--line-dark)}.metric:last-child{border-right:0}.metric b{display:block;font-size:clamp(32px,3.6vw,56px);line-height:.88;letter-spacing:-.055em;font-weight:850;margin-bottom:14px}.metric small{display:block;color:#a3a3a3;font-size:10px;line-height:1.4;font-weight:780;letter-spacing:.15em;text-transform:uppercase}
+
+    .panel-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:0;border:1px solid var(--line-dark);border-radius:0;overflow:hidden}.panel{min-height:260px;padding:38px;border-right:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark)}.panel:nth-child(even){border-right:0}.panel:nth-last-child(-n+2){border-bottom:0}.panel h3{font-size:16px;line-height:1.1;letter-spacing:-.02em;font-weight:760;margin-bottom:16px}.panel p{font-size:13px;line-height:1.48;color:#aaa;max-width:380px}.huge{font-size:clamp(92px,11vw,170px);line-height:.8;letter-spacing:-.08em;font-weight:870;margin-top:30px}.mini-label{font-size:10px;color:#aaa;font-weight:800;letter-spacing:.18em;text-transform:uppercase;margin-bottom:18px}
+
+    .people-strip{display:flex;gap:10px;margin-top:34px}.person{width:46px;height:86px;position:relative}.person:before{content:"";position:absolute;top:0;left:12px;width:22px;height:22px;border-radius:99px;background:var(--neon)}.person:after{content:"";position:absolute;bottom:0;left:6px;width:34px;height:56px;border-radius:16px 16px 6px 6px;background:var(--neon)}.person.dim:before,.person.dim:after{background:#303030}
+
+    .market-card{border:1px solid var(--line-dark);padding:46px 48px 42px}.chart-wrap{height:390px;position:relative;margin-top:18px}.chart-svg{width:100%;height:100%;overflow:visible}.axis{position:absolute;left:0;right:0;bottom:0;height:1px;background:#333}.year-row{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:-16px;color:#e8e8e8;font-size:14px;font-weight:820}.year-row span{position:relative}.year-row small{display:block;margin-top:5px;color:#8d8d8d;font-size:10px;font-weight:650;letter-spacing:-.01em}.chart-caption{display:flex;justify-content:space-between;align-items:flex-end;gap:28px;margin-top:28px;border-top:1px solid var(--line-dark);padding-top:26px}.chart-caption b{font-size:54px;letter-spacing:-.06em;line-height:.88}.chart-caption p{font-size:13px;line-height:1.48;color:#aaa;max-width:390px}
+
+    .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line);border-left:1px solid var(--line);margin-top:64px}.card{min-height:330px;padding:38px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column;justify-content:space-between}.card .icon{width:46px;height:46px;border:1px solid var(--ink);display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800}.card h3{font-size:34px;line-height:1.02;letter-spacing:-.05em;font-weight:780;max-width:260px}.card p{font-size:14px;line-height:1.5;color:#666;max-width:280px}.card .date{font-size:11px;color:#999;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+
+    .rows{display:grid;gap:0;border-top:1px solid var(--line-dark);margin-top:62px;max-width:980px}.row{display:grid;grid-template-columns:150px 1fr 170px;gap:30px;align-items:center;border-bottom:1px solid var(--line-dark);padding:28px 0}.row .tag{font-size:10px;color:#aaa;font-weight:800;letter-spacing:.18em;text-transform:uppercase}.row strong{font-size:28px;line-height:1.05;letter-spacing:-.04em}.row span{color:var(--neon);font-size:14px;font-weight:850;letter-spacing:.12em;text-transform:uppercase;text-align:right}.dark-card{border:1px solid var(--line-dark);padding:34px;background:#080808}.logo-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border-top:1px solid var(--line-dark);border-left:1px solid var(--line-dark);margin-top:70px}.logo{height:138px;display:flex;align-items:center;justify-content:center;border-right:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark);font-size:18px;font-weight:800;letter-spacing:-.03em;color:#e8e8e8;text-align:center;padding:20px}.logo small{display:block;color:#888;font-size:10px;letter-spacing:.16em;text-transform:uppercase;margin-top:8px}
+
+    .bar-chart{height:310px;display:flex;align-items:end;gap:18px;margin-top:50px;padding-bottom:26px;border-bottom:1px solid var(--line-dark)}.bar{flex:1;min-width:34px;background:var(--neon);border-radius:9px 9px 0 0;position:relative}.bar:before{content:attr(data-val);position:absolute;top:-26px;left:50%;transform:translateX(-50%);font-size:12px;font-weight:800;color:#fff}.bar:after{content:attr(data-label);position:absolute;bottom:-28px;left:50%;transform:translateX(-50%);font-size:10px;color:#777;white-space:nowrap}.bar.dim{background:#2e2e2e}.money-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;border:1px solid var(--line-dark);margin-top:70px}.money{padding:44px;border-right:1px solid var(--line-dark)}.money:last-child{border-right:0}.money .value{font-size:clamp(66px,7vw,118px);line-height:.86;letter-spacing:-.075em;font-weight:870;margin:24px 0 20px}.money h3{font-size:15px;color:#aaa;text-transform:uppercase;letter-spacing:.16em}.money p{font-size:14px;color:#aaa;line-height:1.5;max-width:360px}
+
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity .75s cubic-bezier(.22,1,.36,1),transform .75s cubic-bezier(.22,1,.36,1)}.reveal.show{opacity:1;transform:translateY(0)}.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
+    @media(max-width:1180px){.container{width:calc(100% - 90px)}.split{grid-template-columns:1fr;gap:58px}.metric-row,.cards,.logo-grid,.money-grid{grid-template-columns:1fr 1fr}.panel-grid{grid-template-columns:1fr}.panel,.panel:nth-child(even),.panel:nth-last-child(-n+2){border-right:0;border-bottom:1px solid var(--line-dark)}.row{grid-template-columns:1fr;gap:12px}.row span{text-align:left}.chart-wrap{height:320px}}
+    @media(max-width:720px){.topbar{height:58px;padding:0 18px}.topbar .meta{display:none}.progress{top:58px}.slide{min-height:auto;padding:90px 0 64px}.container{width:calc(100% - 34px)}.kicker{margin-bottom:30px}.hero{font-size:46px}.headline{font-size:42px}.lead{font-size:20px}.metric-row,.cards,.logo-grid,.money-grid{grid-template-columns:1fr}.metric{border-right:0;border-bottom:1px solid var(--line-dark)}.card{min-height:260px}.logo{height:108px}.money{border-right:0;border-bottom:1px solid var(--line-dark);padding:32px}.chart-caption{display:block}.chart-caption b{display:block;margin-bottom:18px}.people-strip{gap:5px}.person{transform:scale(.8);transform-origin:left bottom}.slide-index{display:none}}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a href="#cover" class="brand"><span class="dot"></span>Drelife</a>
+    <div class="meta">Investor Deck · Official Resale</div>
+  </header>
+  <div class="progress"><span data-progress></span></div>
+
+  <main>
+    <section id="cover" class="slide dark">
+      <div class="container">
+        <div class="kicker reveal">01 · Thesis</div>
+        <h1 class="hero reveal d1">The official <span class="neon">resale</span> layer for fashion brands.</h1>
+        <div class="metric-row reveal d2">
+          <div class="metric"><b>$393B</b><small>Secondhand apparel by 2030</small></div>
+          <div class="metric"><b>2×</b><small>Faster than traditional retail</small></div>
+          <div class="metric"><b>70%+</b><small>Driven by Gen Z + Millennials</small></div>
+          <div class="metric"><b>SaaS + %</b><small>Recurring + transaction upside</small></div>
+        </div>
+      </div>
+      <div class="slide-index">01 / 08</div>
+    </section>
+
+    <section class="slide light">
+      <div class="container split">
+        <div>
+          <div class="kicker reveal">02 · Market Shift</div>
+          <h2 class="headline reveal d1">Your customers already resell your products.</h2>
+        </div>
+        <div class="stack reveal d2">
+          <p class="lead">The behavior exists. The brand-owned channel does not.</p>
+          <div class="people-strip" aria-hidden="true">
+            <span class="person"></span><span class="person"></span><span class="person"></span><span class="person"></span><span class="person"></span><span class="person"></span><span class="person"></span><span class="person dim"></span><span class="person dim"></span><span class="person dim"></span>
+          </div>
+          <p class="micro">Secondhand has moved from niche behavior to everyday consumer habit. The opportunity is not to create demand, but to capture it officially.</p>
+        </div>
+      </div>
+      <div class="slide-index">02 / 08</div>
+    </section>
+
+    <section class="slide dark">
+      <div class="container split">
+        <div>
+          <div class="kicker reveal">03 · Problem</div>
+          <h2 class="headline reveal d1">Brands have resale demand. They don’t own the transaction.</h2>
+        </div>
+        <div class="panel-grid reveal d2">
+          <div class="panel">
+            <div class="mini-label">Revenue leakage</div>
+            <div class="huge">€</div>
+            <p>Transactions happen on third-party marketplaces instead of the brand ecosystem.</p>
+          </div>
+          <div class="panel">
+            <div class="mini-label">Data loss</div>
+            <div class="huge neon-text">0</div>
+            <p>No visibility on customer lifecycle, resale frequency or product value after first sale.</p>
+          </div>
+          <div class="panel">
+            <div class="mini-label">Brand dilution</div>
+            <div class="huge">3rd</div>
+            <p>The experience is controlled by external platforms, not by the brand.</p>
+          </div>
+          <div class="panel">
+            <div class="mini-label">The gap</div>
+            <h3 style="font-size:40px;letter-spacing:-.05em;line-height:.98;margin-top:44px">Resale is happening.<br><span class="neon">Outside.</span></h3>
+          </div>
+        </div>
+      </div>
+      <div class="slide-index">03 / 08</div>
+    </section>
+
+    <section class="slide dark">
+      <div class="container">
+        <div class="split end">
+          <div>
+            <div class="kicker reveal">04 · Market Size</div>
+            <h2 class="headline reveal d1">The resale economy is becoming a retail layer.</h2>
+          </div>
+          <p class="lead reveal d2">Market growth is already visible. Brands need the infrastructure to participate directly.</p>
+        </div>
+        <div class="market-card reveal d3">
+          <div class="chart-wrap">
+            <svg class="chart-svg" viewBox="0 0 1000 360" preserveAspectRatio="none" aria-hidden="true">
+              <defs>
+                <linearGradient id="area" x1="0" x2="0" y1="0" y2="1">
+                  <stop offset="0%" stop-color="#BEFF00" stop-opacity=".62"/>
+                  <stop offset="100%" stop-color="#BEFF00" stop-opacity=".04"/>
+                </linearGradient>
+              </defs>
+              <path d="M0,320 C140,272 190,235 255,225 C370,206 425,220 510,190 C615,152 665,138 740,130 C850,119 895,78 1000,35 L1000,360 L0,360 Z" fill="url(#area)"/>
+              <path d="M0,320 C140,272 190,235 255,225 C370,206 425,220 510,190 C615,152 665,138 740,130 C850,119 895,78 1000,35" fill="none" stroke="#BEFF00" stroke-width="7" stroke-linecap="round"/>
+              <g fill="#050505" stroke="#BEFF00" stroke-width="7">
+                <circle cx="255" cy="225" r="13"/><circle cx="510" cy="190" r="13"/><circle cx="740" cy="130" r="13"/><circle cx="1000" cy="35" r="13"/>
+              </g>
+            </svg>
+          </div>
+          <div class="year-row"><span>2021<small>early adoption</small></span><span>2024<small>mass behavior</small></span><span>2026<small>brand adoption</small></span><span>2028<small>scale</small></span><span>2030<small>$393B</small></span></div>
+          <div class="chart-caption">
+            <b><span class="neon-text">$393B</span></b>
+            <p>Projected global secondhand apparel market by 2030. The strategic question is not whether resale grows, but who owns the brand layer.</p>
+          </div>
+        </div>
+      </div>
+      <div class="slide-index">04 / 08</div>
+    </section>
+
+    <section class="slide light">
+      <div class="container">
+        <div class="split end">
+          <div>
+            <div class="kicker reveal">05 · Solution</div>
+            <h2 class="headline reveal d1">A brand-owned resale channel, operated end-to-end.</h2>
+          </div>
+          <p class="lead reveal d2">Drelife lets fashion brands launch their official pre-owned channel without building the infrastructure from scratch.</p>
+        </div>
+        <div class="cards reveal d3">
+          <article class="card"><div><div class="icon">01</div></div><div><h3>Own the channel.</h3><p>Controlled experience under the brand’s identity.</p></div><span class="date">White-label</span></article>
+          <article class="card"><div><div class="icon">02</div></div><div><h3>Capture the margin.</h3><p>Recurring SaaS plus transaction upside from existing demand.</p></div><span class="date">Monetization</span></article>
+          <article class="card"><div><div class="icon">03</div></div><div><h3>Learn from the lifecycle.</h3><p>Product value, resale velocity and circular demand become visible.</p></div><span class="date">Data layer</span></article>
+        </div>
+      </div>
+      <div class="slide-index">05 / 08</div>
+    </section>
+
+    <section class="slide dark">
+      <div class="container">
+        <div class="kicker reveal">06 · Why Now</div>
+        <h2 class="headline reveal d1">Timing is the advantage.</h2>
+        <div class="rows reveal d2">
+          <div class="row"><div class="tag">Culture</div><strong>Secondhand is normalized.</strong><span>Demand exists</span></div>
+          <div class="row"><div class="tag">Economics</div><strong>CAC is rising. LTV needs expansion.</strong><span>Revenue layer</span></div>
+          <div class="row"><div class="tag">Regulation</div><strong>Circular responsibility is moving from optional to expected.</strong><span>Pressure</span></div>
+          <div class="row"><div class="tag">Technology</div><strong>APIs, pricing and logistics make resale scalable.</strong><span>Infrastructure</span></div>
+        </div>
+      </div>
+      <div class="slide-index">06 / 08</div>
+    </section>
+
+    <section class="slide dark">
+      <div class="container">
+        <div class="split end">
+          <div>
+            <div class="kicker reveal">07 · Traction</div>
+            <h2 class="headline reveal d1">We are not testing. <span class="neon">We are growing.</span></h2>
+          </div>
+          <div class="dark-card reveal d2">
+            <div class="mini-label">Commercial proof</div>
+            <div class="bar-chart" aria-hidden="true">
+              <div class="bar dim" style="height:30%" data-val="Live" data-label="2024"></div>
+              <div class="bar" style="height:48%" data-val="8" data-label="Brands"></div>
+              <div class="bar" style="height:64%" data-val="FCB" data-label="Sports"></div>
+              <div class="bar" style="height:78%" data-val="Seed" data-label="Now"></div>
+            </div>
+          </div>
+        </div>
+        <div class="logo-grid reveal d3">
+          <div class="logo">Armand Basi</div><div class="logo">Munich</div><div class="logo">FC Barcelona</div><div class="logo">Casas</div><div class="logo">Bad Habits</div>
+        </div>
+      </div>
+      <div class="slide-index">07 / 08</div>
+    </section>
+
+    <section class="slide dark">
+      <div class="container">
+        <div class="kicker reveal">08 · Business Model</div>
+        <h2 class="headline reveal d1">Recurring SaaS with transaction upside.</h2>
+        <div class="money-grid reveal d2">
+          <div class="money"><h3>SaaS MRR</h3><div class="value">€400–10K</div><p>Monthly fee by brand tier and operational scope.</p></div>
+          <div class="money"><h3>Take-rate</h3><div class="value"><span class="neon-text">10–15%</span></div><p>Variable revenue on brand-owned resale transactions.</p></div>
+        </div>
+        <div class="metric-row reveal d3" style="margin-top:80px">
+          <div class="metric"><b>Seed</b><small>Opening to scale sales</small></div>
+          <div class="metric"><b>AI</b><small>Pricing intelligence</small></div>
+          <div class="metric"><b>EU</b><small>International expansion</small></div>
+          <div class="metric"><b>Drelife</b><small>Official resale infrastructure</small></div>
+        </div>
+      </div>
+      <div class="slide-index">08 / 08</div>
+    </section>
+  </main>
+
+  <script>
+    const progress=document.querySelector('[data-progress]');
+    const update=()=>{const h=document.documentElement;const max=h.scrollHeight-innerHeight;progress.style.width=(max?scrollY/max*100:0)+'%'};
+    addEventListener('scroll',update,{passive:true});update();
+    const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.18});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  </script>
+</body>
+</html>
