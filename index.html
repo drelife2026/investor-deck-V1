@@ -1,259 +1,1255 @@
 <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Drelife | Resale Investor Deck</title>
-  <meta name="description" content="Drelife investor deck focused on official resale infrastructure for fashion brands." />
-  <style>
-    :root{
-      --black:#050505;
-      --white:#ffffff;
-      --ink:#101010;
-      --muted:#888888;
-      --soft:#e9e9e9;
-      --line:#dedede;
-      --line-dark:rgba(255,255,255,.16);
-      --neon:#BEFF00;
-      --max:1360px;
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;background:var(--white);color:var(--ink);
-      font-family:Inter,"Helvetica Neue",Arial,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-      -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
-    }
-    a{color:inherit;text-decoration:none}
-    .topbar{
-      position:fixed;inset:0 0 auto 0;z-index:30;height:68px;
-      display:flex;align-items:center;justify-content:space-between;
-      padding:0 44px;background:rgba(255,255,255,.84);backdrop-filter:blur(22px);
-      border-bottom:1px solid rgba(0,0,0,.1);
-      font-size:11px;font-weight:780;letter-spacing:.24em;text-transform:uppercase;
-    }
-    .brand{display:flex;align-items:center;gap:12px;font-size:15px;font-weight:780;letter-spacing:0;text-transform:none}
-    .dot{width:8px;height:8px;border-radius:99px;background:var(--neon);display:inline-block;border:1px solid rgba(0,0,0,.28)}
-    .progress{position:fixed;top:68px;left:0;right:0;height:2px;z-index:32;background:transparent}
-    .progress span{display:block;width:0;height:100%;background:var(--neon)}
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drelife Investor Deck | Turning Circularity Into New Business Units for Brands</title>
+    <meta name="description" content="Turning Circularity Into New Business Units for Brands. White-label SaaS platform. $393B market by 2030." />
 
-    .slide{min-height:100svh;display:flex;align-items:center;position:relative;overflow:hidden;padding:116px 0 88px;border-top:1px solid var(--line)}
-    .slide:first-of-type{border-top:0}
-    .dark{background:var(--black);color:var(--white);border-top-color:var(--line-dark)}
-    .light{background:var(--white);color:var(--ink)}
-    .container{width:min(var(--max),calc(100% - 220px));margin:0 auto;position:relative;z-index:1}
+    <style>
+      :root {
+        --background: #ffffff;
+        --foreground: #111111;
+        --panel: #ffffff;
+        --paper: #ffffff;
+        --muted: #7d7d7d;
+        --muted-strong: #2a2a2a;
+        --divider: #e0e0e0;
+        --accent: #BEFF00;
+        --accent-ink: #BEFF00;
+        --blue: #2377ff;
+        --blue-soft: #eaf2ff;
+        --shadow: 0 18px 60px rgba(17,17,17,0.08);
+        --ambient-y: 0px;
+        --grain-y: 0px;
+        --field-x: 0px;
+        --field-y: 0px;
+        --speed-shift: 0px;
+        --speed-shift-inverse: 0px;
+      }
 
-    .kicker{display:flex;align-items:center;gap:14px;margin-bottom:48px;color:var(--muted);font-size:10.5px;font-weight:850;letter-spacing:.28em;text-transform:uppercase}
-    .kicker:before{content:"";display:block;width:28px;height:1px;background:currentColor}.dark .kicker{color:#aaa}
-    h1,h2,h3,p{margin:0}.hero{font-size:clamp(62px,8.4vw,138px);line-height:.91;letter-spacing:-.06em;font-weight:850;max-width:1180px}.headline{font-size:clamp(48px,6.7vw,108px);line-height:.93;letter-spacing:-.058em;font-weight:850;max-width:1120px}.italic{font-style:italic;font-weight:280;letter-spacing:-.035em}.lead{font-size:clamp(20px,2.15vw,32px);line-height:1.17;letter-spacing:-.027em;font-weight:360;color:#626262;max-width:810px}.dark .lead{color:#d2d2d2}.micro{font-size:14px;line-height:1.52;color:var(--muted);max-width:560px}.dark .micro{color:#9f9f9f}.neon{background:var(--neon);color:#070707;padding:0 .09em;box-decoration-break:clone;-webkit-box-decoration-break:clone}.neon-text{color:var(--neon)}
+      *, *::before, *::after { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
 
-    .split{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(390px,.78fr);gap:90px;align-items:center}.split.end{align-items:end}.stack{display:grid;gap:34px}.slide-index{position:absolute;right:44px;bottom:34px;color:var(--muted);font-size:11px;font-weight:780;letter-spacing:.18em}.dark .slide-index{color:#777}
+      body {
+        margin: 0;
+        background: var(--background);
+        color: var(--foreground);
+        font-family: Inter, "Helvetica Neue", Arial, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        letter-spacing: 0;
+        -webkit-font-smoothing: antialiased;
+      }
 
-    .metric-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark);margin-top:80px}.metric{min-height:126px;padding:27px 26px 24px 0;border-right:1px solid var(--line-dark)}.metric:last-child{border-right:0}.metric b{display:block;font-size:clamp(32px,3.6vw,56px);line-height:.88;letter-spacing:-.055em;font-weight:850;margin-bottom:14px}.metric small{display:block;color:#a3a3a3;font-size:10px;line-height:1.4;font-weight:780;letter-spacing:.15em;text-transform:uppercase}
+      a { color: inherit; text-decoration: none; }
 
-    .panel-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:0;border:1px solid var(--line-dark);border-radius:0;overflow:hidden}.panel{min-height:260px;padding:38px;border-right:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark)}.panel:nth-child(even){border-right:0}.panel:nth-last-child(-n+2){border-bottom:0}.panel h3{font-size:16px;line-height:1.1;letter-spacing:-.02em;font-weight:760;margin-bottom:16px}.panel p{font-size:13px;line-height:1.48;color:#aaa;max-width:380px}.huge{font-size:clamp(92px,11vw,170px);line-height:.8;letter-spacing:-.08em;font-weight:870;margin-top:30px}.mini-label{font-size:10px;color:#aaa;font-weight:800;letter-spacing:.18em;text-transform:uppercase;margin-bottom:18px}
+      /* ── TOPBAR ── */
+      .topbar {
+        position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+        display: flex; align-items: center; justify-content: space-between; gap: 24px;
+        min-height: 72px; padding: 0 52px;
+        border-bottom: 1px solid rgba(0,0,0,0.07);
+        background: rgba(255,255,255,0.88);
+        backdrop-filter: blur(24px) saturate(1.4);
+      }
 
-    .people-strip{display:flex;gap:10px;margin-top:34px}.person{width:46px;height:86px;position:relative}.person:before{content:"";position:absolute;top:0;left:12px;width:22px;height:22px;border-radius:99px;background:var(--neon)}.person:after{content:"";position:absolute;bottom:0;left:6px;width:34px;height:56px;border-radius:16px 16px 6px 6px;background:var(--neon)}.person.dim:before,.person.dim:after{background:#303030}
+      .topbar-left, .brand, .meta { display: flex; align-items: center; gap: 15px; min-width: 0; }
+      .topbar-left { gap: 18px; }
 
-    .market-card{border:1px solid var(--line-dark);padding:46px 48px 42px}.chart-wrap{height:390px;position:relative;margin-top:18px}.chart-svg{width:100%;height:100%;overflow:visible}.axis{position:absolute;left:0;right:0;bottom:0;height:1px;background:#333}.year-row{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:-16px;color:#e8e8e8;font-size:14px;font-weight:820}.year-row span{position:relative}.year-row small{display:block;margin-top:5px;color:#8d8d8d;font-size:10px;font-weight:650;letter-spacing:-.01em}.chart-caption{display:flex;justify-content:space-between;align-items:flex-end;gap:28px;margin-top:28px;border-top:1px solid var(--line-dark);padding-top:26px}.chart-caption b{font-size:54px;letter-spacing:-.06em;line-height:.88}.chart-caption p{font-size:13px;line-height:1.48;color:#aaa;max-width:390px}
+      .lang-toggle {
+        display: inline-flex; align-items: center; justify-content: center;
+        width: 38px; height: 28px;
+        border: 1px solid rgba(17,17,17,0.16); border-radius: 999px;
+        background: var(--accent); color: var(--foreground);
+        font: inherit; font-size: 11px; font-weight: 760; letter-spacing: 0.14em;
+        cursor: pointer;
+      }
+      .lang-toggle:hover { border-color: rgba(17,17,17,0.38); }
 
-    .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line);border-left:1px solid var(--line);margin-top:64px}.card{min-height:330px;padding:38px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column;justify-content:space-between}.card .icon{width:46px;height:46px;border:1px solid var(--ink);display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800}.card h3{font-size:34px;line-height:1.02;letter-spacing:-.05em;font-weight:780;max-width:260px}.card p{font-size:14px;line-height:1.5;color:#666;max-width:280px}.card .date{font-size:11px;color:#999;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+      .brand__dot, .accent-dot {
+        display: inline-block; width: 8px; height: 8px; flex: 0 0 auto;
+        border-radius: 999px; background: var(--accent);
+      }
 
-    .rows{display:grid;gap:0;border-top:1px solid var(--line-dark);margin-top:62px;max-width:980px}.row{display:grid;grid-template-columns:150px 1fr 170px;gap:30px;align-items:center;border-bottom:1px solid var(--line-dark);padding:28px 0}.row .tag{font-size:10px;color:#aaa;font-weight:800;letter-spacing:.18em;text-transform:uppercase}.row strong{font-size:28px;line-height:1.05;letter-spacing:-.04em}.row span{color:var(--neon);font-size:14px;font-weight:850;letter-spacing:.12em;text-transform:uppercase;text-align:right}.dark-card{border:1px solid var(--line-dark);padding:34px;background:#080808}.logo-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border-top:1px solid var(--line-dark);border-left:1px solid var(--line-dark);margin-top:70px}.logo{height:138px;display:flex;align-items:center;justify-content:center;border-right:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark);font-size:18px;font-weight:800;letter-spacing:-.03em;color:#e8e8e8;text-align:center;padding:20px}.logo small{display:block;color:#888;font-size:10px;letter-spacing:.16em;text-transform:uppercase;margin-top:8px}
+      .brand__name { font-size: 15px; font-weight: 700; letter-spacing: -0.01em; }
 
-    .bar-chart{height:310px;display:flex;align-items:end;gap:18px;margin-top:50px;padding-bottom:26px;border-bottom:1px solid var(--line-dark)}.bar{flex:1;min-width:34px;background:var(--neon);border-radius:9px 9px 0 0;position:relative}.bar:before{content:attr(data-val);position:absolute;top:-26px;left:50%;transform:translateX(-50%);font-size:12px;font-weight:800;color:#fff}.bar:after{content:attr(data-label);position:absolute;bottom:-28px;left:50%;transform:translateX(-50%);font-size:10px;color:#777;white-space:nowrap}.bar.dim{background:#2e2e2e}.money-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;border:1px solid var(--line-dark);margin-top:70px}.money{padding:44px;border-right:1px solid var(--line-dark)}.money:last-child{border-right:0}.money .value{font-size:clamp(66px,7vw,118px);line-height:.86;letter-spacing:-.075em;font-weight:870;margin:24px 0 20px}.money h3{font-size:15px;color:#aaa;text-transform:uppercase;letter-spacing:.16em}.money p{font-size:14px;color:#aaa;line-height:1.5;max-width:360px}
+      .brand__context, .meta {
+        color: #777; font-size: 12px; font-weight: 680; letter-spacing: 0.34em; text-transform: uppercase;
+      }
 
-    .reveal{opacity:0;transform:translateY(24px);transition:opacity .75s cubic-bezier(.22,1,.36,1),transform .75s cubic-bezier(.22,1,.36,1)}.reveal.show{opacity:1;transform:translateY(0)}.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
-    @media(max-width:1180px){.container{width:calc(100% - 90px)}.split{grid-template-columns:1fr;gap:58px}.metric-row,.cards,.logo-grid,.money-grid{grid-template-columns:1fr 1fr}.panel-grid{grid-template-columns:1fr}.panel,.panel:nth-child(even),.panel:nth-last-child(-n+2){border-right:0;border-bottom:1px solid var(--line-dark)}.row{grid-template-columns:1fr;gap:12px}.row span{text-align:left}.chart-wrap{height:320px}}
-    @media(max-width:720px){.topbar{height:58px;padding:0 18px}.topbar .meta{display:none}.progress{top:58px}.slide{min-height:auto;padding:90px 0 64px}.container{width:calc(100% - 34px)}.kicker{margin-bottom:30px}.hero{font-size:46px}.headline{font-size:42px}.lead{font-size:20px}.metric-row,.cards,.logo-grid,.money-grid{grid-template-columns:1fr}.metric{border-right:0;border-bottom:1px solid var(--line-dark)}.card{min-height:260px}.logo{height:108px}.money{border-right:0;border-bottom:1px solid var(--line-dark);padding:32px}.chart-caption{display:block}.chart-caption b{display:block;margin-bottom:18px}.people-strip{gap:5px}.person{transform:scale(.8);transform-origin:left bottom}.slide-index{display:none}}
-  </style>
-</head>
-<body>
-  <header class="topbar">
-    <a href="#cover" class="brand"><span class="dot"></span>Drelife</a>
-    <div class="meta">Investor Deck · Official Resale</div>
-  </header>
-  <div class="progress"><span data-progress></span></div>
+      .meta { gap: 28px; }
+      .meta__divider { width: 1px; height: 14px; background: var(--divider); }
 
-  <main>
-    <section id="cover" class="slide dark">
-      <div class="container">
-        <div class="kicker reveal">01 · Thesis</div>
-        <h1 class="hero reveal d1">The official <span class="neon">resale</span> layer for fashion brands.</h1>
-        <div class="metric-row reveal d2">
-          <div class="metric"><b>$393B</b><small>Secondhand apparel by 2030</small></div>
-          <div class="metric"><b>2×</b><small>Faster than traditional retail</small></div>
-          <div class="metric"><b>70%+</b><small>Driven by Gen Z + Millennials</small></div>
-          <div class="metric"><b>SaaS + %</b><small>Recurring + transaction upside</small></div>
-        </div>
+      /* ── PROGRESS ── */
+      .progress { position: fixed; top: 72px; left: 0; z-index: 55; width: 100%; height: 2px; background: transparent; }
+      .progress__bar { width: 0%; height: 100%; background: linear-gradient(90deg, var(--accent), var(--blue)); transition: width 160ms linear; }
+
+      /* ── SIDE NAV ── */
+      .side-nav { position: fixed; right: 34px; top: 50%; z-index: 45; transform: translateY(-50%); }
+      .side-nav ul { display: flex; flex-direction: column; gap: 12px; margin: 0; padding: 0; list-style: none; }
+      .side-nav a {
+        display: flex; align-items: center; justify-content: flex-end; gap: 10px;
+        min-height: 22px; color: var(--muted);
+        font-size: 10px; font-weight: 700; text-transform: uppercase;
+      }
+      .side-nav span:first-child {
+        opacity: 0; transform: translateX(6px);
+        transition: opacity 240ms ease, transform 240ms ease;
+        white-space: nowrap;
+      }
+      .side-nav span:last-child {
+        display: block; width: 18px; height: 1px; background: var(--divider);
+        transition: width 260ms ease, background 260ms ease;
+      }
+      .side-nav a:hover span:first-child, .side-nav a.is-active span:first-child { opacity: 1; transform: translateX(0); }
+      .side-nav a.is-active { color: var(--foreground); }
+      .side-nav a.is-active span:last-child { width: 34px; background: var(--foreground); }
+
+      /* ── AMBIENT LAYER ── */
+      .ambient-layer { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+      .ambient-tint {
+        position: absolute; inset: -60% -40%;
+        background: radial-gradient(ellipse 70% 60% at 62% 38%, rgba(190,255,0,0.032), transparent 64%),
+                    radial-gradient(ellipse 50% 40% at 22% 74%, rgba(35,119,255,0.022), transparent 58%);
+        animation: ambient-drift 28s ease-in-out infinite alternate;
+        transform: translateY(var(--ambient-y));
+        will-change: transform;
+      }
+      @keyframes ambient-drift { from { opacity: 0.7; } to { opacity: 1; } }
+
+      .ambient-grain {
+        position: absolute; inset: -50%;
+        width: 200%; height: 200%;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+        opacity: 0.024; transform: translateY(var(--grain-y)); will-change: transform;
+      }
+
+      .field-motifs {
+        position: absolute; inset: -8% -22%; opacity: 0.038;
+        transform: translate(var(--field-x), var(--field-y));
+        will-change: transform;
+      }
+      .field-motifs svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 1; }
+
+      /* ── SLIDES ── */
+      .slide {
+        position: relative; display: flex; align-items: center;
+        min-height: 100svh; padding: 120px 0 96px;
+        border-top: 1px solid var(--divider);
+        overflow: hidden; scroll-margin-top: 72px;
+      }
+      .slide:first-of-type { border-top: 0; }
+      .slide--soft { background: var(--panel); }
+      .slide--dark { background: #0a0a0a; color: #ffffff; }
+
+      .slide--grid::before {
+        content: "";
+        position: absolute; inset: 0; pointer-events: none;
+        background: radial-gradient(ellipse 80% 60% at 30% 50%, rgba(190,255,0,0.04), transparent 70%),
+                    radial-gradient(ellipse 50% 70% at 80% 30%, rgba(190,255,0,0.025), transparent 60%);
+      }
+
+      .container {
+        position: relative; z-index: 1;
+        width: min(1400px, calc(100% - 240px));
+        margin: 0 auto;
+      }
+
+      /* ── DARK SLIDE FX ── */
+      .slide--dark .section-label, .slide--dark .muted, .slide--dark .sub-text { color: #999; }
+      .slide--dark .tile { border-color: rgba(255,255,255,0.1); }
+      .slide--dark .divider { background: rgba(255,255,255,0.1); }
+
+      /* ── TYPE ── */
+      .section-label {
+        display: inline-flex; align-items: center; gap: 10px;
+        margin-bottom: 56px; color: #999;
+        font-size: 11px; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase;
+      }
+      .section-label::before { content: ""; display: inline-block; width: 24px; height: 1px; background: var(--accent); opacity: 0.9; }
+
+      .headline-xl { margin: 0; font-size: 108px; font-weight: 800; line-height: 0.96; letter-spacing: -0.025em; }
+      .headline    { margin: 0; font-size: 86px; font-weight: 780; line-height: 1.0; letter-spacing: -0.022em; }
+      .headline-md { margin: 0; font-size: 62px; font-weight: 780; line-height: 1.08; letter-spacing: -0.02em; }
+      .italic      { font-style: italic; font-weight: 280; letter-spacing: -0.01em; }
+      .muted       { color: #686868; }
+      .highlight   { background: var(--accent); color: var(--foreground); padding: 0 6px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+
+      .sub-text { margin: 0; color: #777; font-size: 17px; font-weight: 400; line-height: 1.55; }
+
+      /* ── NEON TRANSLUCENT BOX ── */
+      .neon-box {
+        padding: 40px;
+        background: rgba(190, 255, 0, 0.08);
+        border: 1px solid rgba(190, 255, 0, 0.2);
+        border-radius: 12px;
+        backdrop-filter: blur(8px);
+      }
+      .neon-box-dark {
+        padding: 56px;
+        background: rgba(190, 255, 0, 0.12);
+        border: 1px solid rgba(190, 255, 0, 0.25);
+        border-radius: 16px;
+      }
+
+      .lead-block { display: flex; align-items: flex-start; gap: 30px; max-width: 760px; margin-top: 72px; }
+      .accent-bar { display: block; width: 48px; height: 2px; flex: 0 0 auto; margin-top: 18px; background: var(--accent); }
+      .headline + .sub-text, .headline-xl + .sub-text { margin-top: 32px; }
+
+      /* ── GRID ── */
+      .grid { display: grid; gap: 56px; }
+      .grid--header { gap: 48px; }
+      .grid--two   { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .grid--three { grid-template-columns: repeat(3, minmax(0,1fr)); }
+      .grid--four  { grid-template-columns: repeat(4, minmax(0,1fr)); }
+      .grid--split {
+        grid-template-columns: minmax(0,700px) minmax(0,742px);
+        justify-content: space-between; align-items: center; gap: 90px;
+      }
+
+      /* ── TILES ── */
+      .tile-grid { display: grid; gap: 0; }
+      .tile {
+        position: relative;
+        min-height: 0;
+        padding: 44px 40px 44px 0;
+        background: transparent;
+        border-top: 1px solid var(--divider);
+      }
+      .tile:last-child { border-bottom: 1px solid var(--divider); }
+      .grid--three .tile:nth-child(n+2),
+      .grid--four .tile:nth-child(n+2) {
+        padding-left: 40px;
+        border-left: 1px solid var(--divider);
+      }
+      .grid--three .tile:nth-child(-n+3),
+      .grid--four .tile:nth-child(-n+4) {
+        border-top: 1px solid var(--divider);
+      }
+
+      .tile--hover { transition: background 240ms ease; }
+      .tile--hover:hover { background: rgba(190,255,0,0.02); }
+      .tile--hover:hover .stat-value { color: var(--accent); }
+
+      .tile-kicker { color: var(--muted); font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 0; }
+
+      .stat-value  { margin-top: 52px; font-size: 72px; font-weight: 800; line-height: 0.92; letter-spacing: -0.03em; }
+      .stat-label  { margin-top: 18px; font-size: 16px; font-weight: 700; line-height: 1.24; }
+      .stat-detail { margin-top: 14px; color: var(--muted); font-size: 14px; font-weight: 400; line-height: 1.55; }
+
+      /* ── COVER ── */
+      #cover { padding-top: 140px; }
+      .cover-layout { display: block; }
+      #cover .section-label { margin-bottom: 70px; }
+      #cover .headline-xl { max-width: 1200px; font-size: 116px; }
+      .cover-lead { max-width: 780px; margin-top: 62px; }
+      .cover-lead .accent-bar { margin-top: 38px; }
+
+      /* ── LOGO CAROUSEL ── */
+      .logo-carousel {
+        position: relative;
+        z-index: 1;
+        padding: 46px 0;
+        overflow: hidden;
+        border-top: 1px solid var(--divider);
+        border-bottom: 1px solid var(--divider);
+        background: transparent;
+      }
+      .logo-carousel__track {
+        display: flex;
+        width: max-content;
+        will-change: transform;
+        animation: logo-marquee 44s linear infinite;
+      }
+      .logo-carousel__group {
+        display: flex;
+        flex: 0 0 auto;
+        align-items: center;
+        gap: 120px;
+        padding-right: 120px;
+      }
+      .logo-carousel img {
+        display: block;
+        width: auto;
+        height: 92px;
+        max-width: none;
+        object-fit: contain;
+        filter: grayscale(1) brightness(0.4);
+        opacity: 0.6;
+        transition: filter 0.3s ease, opacity 0.3s ease;
+      }
+      .logo-carousel img:hover {
+        filter: grayscale(0) brightness(1);
+        opacity: 1;
+      }
+
+      @keyframes logo-marquee {
+        from { transform: translateX(0); }
+        to { transform: translateX(-50%); }
+      }
+
+      /* ── MODULE GRID ── */
+      .module-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 32px;
+        margin-top: 72px;
+      }
+      .module-card {
+        padding: 40px 32px;
+        background: var(--panel);
+        border: 1px solid var(--divider);
+        border-radius: 12px;
+        transition: transform 0.24s ease, box-shadow 0.24s ease;
+      }
+      .module-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+      }
+      .module-num {
+        display: inline-block;
+        font-size: 11px;
+        font-weight: 800;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        margin-bottom: 24px;
+      }
+      .module-title {
+        font-size: 32px;
+        font-weight: 780;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        margin: 0 0 16px;
+      }
+      .module-desc {
+        font-size: 14px;
+        line-height: 1.6;
+        color: var(--muted);
+      }
+
+      /* ── PARTNER GRID ── */
+      .partner-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 0;
+        margin-top: 72px;
+      }
+      .partner-card {
+        padding: 48px 32px;
+        border-top: 1px solid var(--divider);
+        border-right: 1px solid var(--divider);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+      }
+      .partner-card:nth-child(5n) {
+        border-right: none;
+      }
+      .partner-card:nth-child(n+6) {
+        border-bottom: 1px solid var(--divider);
+      }
+      .partner-label {
+        font-size: 10px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--muted);
+      }
+      .partner-logo {
+        height: 32px;
+        object-fit: contain;
+        object-position: left;
+      }
+      .partner-desc {
+        font-size: 13px;
+        line-height: 1.5;
+        color: var(--muted);
+        margin-top: auto;
+      }
+
+      /* ── METRIC PLACEHOLDER ── */
+      .metric-x {
+        display: inline-block;
+        padding: 2px 12px;
+        background: rgba(255,200,0,0.15);
+        border: 1px dashed rgba(255,200,0,0.4);
+        border-radius: 4px;
+        font-family: 'Courier New', monospace;
+        font-weight: 700;
+        color: #cc8800;
+      }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 1180px) {
+        .container { width: calc(100% - 120px); }
+        .headline-xl, #cover .headline-xl { font-size: 72px; }
+        .headline { font-size: 58px; }
+        .headline-md { font-size: 42px; }
+        .grid--split { grid-template-columns: 1fr; gap: 48px; }
+        .module-grid { grid-template-columns: repeat(2, 1fr); }
+        .partner-grid { grid-template-columns: repeat(2, 1fr); }
+        .partner-card:nth-child(2n) { border-right: none; }
+        .partner-card:nth-child(5n) { border-right: 1px solid var(--divider); }
+        .partner-card:nth-child(n+3) { border-bottom: 1px solid var(--divider); }
+      }
+
+      @media (max-width: 768px) {
+        .topbar { padding: 0 24px; min-height: 64px; }
+        .container { width: calc(100% - 48px); }
+        .side-nav { display: none; }
+        .slide { padding: 90px 0 60px; }
+        #cover { padding-top: 110px; }
+        .headline-xl, #cover .headline-xl { font-size: 42px; line-height: 1.05; }
+        .headline { font-size: 36px; line-height: 1.1; }
+        .headline-md { font-size: 28px; }
+        .stat-value { font-size: 48px; margin-top: 32px; }
+        .grid--two, .grid--three, .grid--four { grid-template-columns: 1fr; gap: 24px; }
+        .tile { 
+          padding: 32px 0 !important; 
+          border-left: none !important; 
+          border-right: none !important;
+        }
+        .grid--three .tile:nth-child(n+2),
+        .grid--four .tile:nth-child(n+2) {
+          padding-left: 0 !important;
+          border-left: none !important;
+        }
+        .module-grid { grid-template-columns: 1fr; gap: 16px; }
+        .partner-grid { grid-template-columns: 1fr; }
+        .partner-card { 
+          border-right: none !important; 
+          padding: 36px 0;
+        }
+        .partner-card:nth-child(n+2) {
+          border-bottom: 1px solid var(--divider);
+        }
+        .logo-carousel { padding: 32px 0; }
+        .logo-carousel img { height: 68px; }
+        .logo-carousel__group { gap: 80px; padding-right: 80px; }
+        .sub-text { font-size: 16px; }
+        .lead-block { flex-direction: column; gap: 20px; }
+        .accent-bar { margin-top: 0; }
+        .section-label { margin-bottom: 32px; font-size: 10px; }
+        .brand__context { display: none; }
+        .meta { font-size: 10px; gap: 12px; }
+        .meta__divider { display: none; }
+      }
+
+      @media (max-width: 480px) {
+        .container { width: calc(100% - 32px); }
+        .topbar { padding: 0 16px; }
+        .headline-xl, #cover .headline-xl { font-size: 32px; }
+        .headline { font-size: 28px; }
+        .headline-md { font-size: 24px; }
+        .stat-value { font-size: 40px; }
+        .module-card, .partner-card { padding: 28px 0; }
+        .tile { padding: 24px 0 !important; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+        .logo-carousel__track { animation: none !important; }
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <div class="ambient-layer" aria-hidden="true">
+      <div class="ambient-tint"></div>
+      <div class="ambient-grain"></div>
+      <div class="field-motifs">
+        <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" focusable="false">
+          <rect x="80" y="72" width="1440" height="756" rx="0"></rect>
+          <line x1="800" y1="72" x2="800" y2="828"></line>
+          <circle cx="800" cy="450" r="160"></circle>
+          <circle cx="800" cy="450" r="80"></circle>
+          <circle cx="800" cy="450" r="4"></circle>
+          <path d="M200 300 Q200 240 260 240 Q320 240 320 300 L160 420 L340 420"></path>
+          <path d="M1400 300 Q1400 240 1340 240 Q1280 240 1280 300 L1260 420 L1440 420"></path>
+        </svg>
       </div>
-      <div class="slide-index">01 / 08</div>
-    </section>
+    </div>
 
-    <section class="slide light">
-      <div class="container split">
-        <div>
-          <div class="kicker reveal">02 · Market Shift</div>
-          <h2 class="headline reveal d1">Your customers already resell your products.</h2>
-        </div>
-        <div class="stack reveal d2">
-          <p class="lead">The behavior exists. The brand-owned channel does not.</p>
-          <div class="people-strip" aria-hidden="true">
-            <span class="person"></span><span class="person"></span><span class="person"></span><span class="person"></span><span class="person"></span><span class="person"></span><span class="person"></span><span class="person dim"></span><span class="person dim"></span><span class="person dim"></span>
-          </div>
-          <p class="micro">Secondhand has moved from niche behavior to everyday consumer habit. The opportunity is not to create demand, but to capture it officially.</p>
-        </div>
+    <header class="topbar" aria-label="Presentation header">
+      <div class="topbar-left">
+        <button class="lang-toggle" type="button" data-lang-toggle aria-label="Switch to English">ES</button>
+        <a class="brand" href="#cover" aria-label="Drelife cover">
+          <span class="brand__dot" aria-hidden="true"></span>
+          <span class="brand__name">Drelife</span>
+          <span class="brand__context">&middot; Investor Deck</span>
+        </a>
       </div>
-      <div class="slide-index">02 / 08</div>
-    </section>
-
-    <section class="slide dark">
-      <div class="container split">
-        <div>
-          <div class="kicker reveal">03 · Problem</div>
-          <h2 class="headline reveal d1">Brands have resale demand. They don’t own the transaction.</h2>
-        </div>
-        <div class="panel-grid reveal d2">
-          <div class="panel">
-            <div class="mini-label">Revenue leakage</div>
-            <div class="huge">€</div>
-            <p>Transactions happen on third-party marketplaces instead of the brand ecosystem.</p>
-          </div>
-          <div class="panel">
-            <div class="mini-label">Data loss</div>
-            <div class="huge neon-text">0</div>
-            <p>No visibility on customer lifecycle, resale frequency or product value after first sale.</p>
-          </div>
-          <div class="panel">
-            <div class="mini-label">Brand dilution</div>
-            <div class="huge">3rd</div>
-            <p>The experience is controlled by external platforms, not by the brand.</p>
-          </div>
-          <div class="panel">
-            <div class="mini-label">The gap</div>
-            <h3 style="font-size:40px;letter-spacing:-.05em;line-height:.98;margin-top:44px">Resale is happening.<br><span class="neon">Outside.</span></h3>
-          </div>
-        </div>
+      <div class="meta">
+        <span>Confidencial</span>
+        <span class="meta__divider"></span>
+        <span>Junio 2026</span>
       </div>
-      <div class="slide-index">03 / 08</div>
-    </section>
+    </header>
 
-    <section class="slide dark">
-      <div class="container">
-        <div class="split end">
-          <div>
-            <div class="kicker reveal">04 · Market Size</div>
-            <h2 class="headline reveal d1">The resale economy is becoming a retail layer.</h2>
-          </div>
-          <p class="lead reveal d2">Market growth is already visible. Brands need the infrastructure to participate directly.</p>
-        </div>
-        <div class="market-card reveal d3">
-          <div class="chart-wrap">
-            <svg class="chart-svg" viewBox="0 0 1000 360" preserveAspectRatio="none" aria-hidden="true">
-              <defs>
-                <linearGradient id="area" x1="0" x2="0" y1="0" y2="1">
-                  <stop offset="0%" stop-color="#BEFF00" stop-opacity=".62"/>
-                  <stop offset="100%" stop-color="#BEFF00" stop-opacity=".04"/>
-                </linearGradient>
-              </defs>
-              <path d="M0,320 C140,272 190,235 255,225 C370,206 425,220 510,190 C615,152 665,138 740,130 C850,119 895,78 1000,35 L1000,360 L0,360 Z" fill="url(#area)"/>
-              <path d="M0,320 C140,272 190,235 255,225 C370,206 425,220 510,190 C615,152 665,138 740,130 C850,119 895,78 1000,35" fill="none" stroke="#BEFF00" stroke-width="7" stroke-linecap="round"/>
-              <g fill="#050505" stroke="#BEFF00" stroke-width="7">
-                <circle cx="255" cy="225" r="13"/><circle cx="510" cy="190" r="13"/><circle cx="740" cy="130" r="13"/><circle cx="1000" cy="35" r="13"/>
-              </g>
-            </svg>
-          </div>
-          <div class="year-row"><span>2021<small>early adoption</small></span><span>2024<small>mass behavior</small></span><span>2026<small>brand adoption</small></span><span>2028<small>scale</small></span><span>2030<small>$393B</small></span></div>
-          <div class="chart-caption">
-            <b><span class="neon-text">$393B</span></b>
-            <p>Projected global secondhand apparel market by 2030. The strategic question is not whether resale grows, but who owns the brand layer.</p>
-          </div>
-        </div>
-      </div>
-      <div class="slide-index">04 / 08</div>
-    </section>
+    <div class="progress" aria-hidden="true">
+      <div class="progress__bar" data-progress-bar></div>
+    </div>
 
-    <section class="slide light">
-      <div class="container">
-        <div class="split end">
-          <div>
-            <div class="kicker reveal">05 · Solution</div>
-            <h2 class="headline reveal d1">A brand-owned resale channel, operated end-to-end.</h2>
-          </div>
-          <p class="lead reveal d2">Drelife lets fashion brands launch their official pre-owned channel without building the infrastructure from scratch.</p>
-        </div>
-        <div class="cards reveal d3">
-          <article class="card"><div><div class="icon">01</div></div><div><h3>Own the channel.</h3><p>Controlled experience under the brand’s identity.</p></div><span class="date">White-label</span></article>
-          <article class="card"><div><div class="icon">02</div></div><div><h3>Capture the margin.</h3><p>Recurring SaaS plus transaction upside from existing demand.</p></div><span class="date">Monetization</span></article>
-          <article class="card"><div><div class="icon">03</div></div><div><h3>Learn from the lifecycle.</h3><p>Product value, resale velocity and circular demand become visible.</p></div><span class="date">Data layer</span></article>
-        </div>
-      </div>
-      <div class="slide-index">05 / 08</div>
-    </section>
+    <nav class="side-nav" aria-label="Presentation sections">
+      <ul>
+        <li><a href="#cover" data-section-link><span>01 Cover</span><span></span></a></li>
+        <li><a href="#market" data-section-link><span>02 Market</span><span></span></a></li>
+        <li><a href="#consumer" data-section-link><span>03 Consumer</span><span></span></a></li>
+        <li><a href="#solution" data-section-link><span>04 Solution</span><span></span></a></li>
+        <li><a href="#verticals" data-section-link><span>05 Verticals</span><span></span></a></li>
+        <li><a href="#ecosystem" data-section-link><span>06 Ecosystem</span><span></span></a></li>
+        <li><a href="#traction" data-section-link><span>07 Traction</span><span></span></a></li>
+        <li><a href="#model" data-section-link><span>08 Model</span><span></span></a></li>
+        <li><a href="#economics" data-section-link><span>09 Economics</span><span></span></a></li>
+        <li><a href="#competitive" data-section-link><span>10 Competitive</span><span></span></a></li>
+        <li><a href="#team" data-section-link><span>11 Team</span><span></span></a></li>
+        <li><a href="#round" data-section-link><span>12 The Round</span><span></span></a></li>
+        <li><a href="#closing" data-section-link><span>13 Closing</span><span></span></a></li>
+      </ul>
+    </nav>
 
-    <section class="slide dark">
-      <div class="container">
-        <div class="kicker reveal">06 · Why Now</div>
-        <h2 class="headline reveal d1">Timing is the advantage.</h2>
-        <div class="rows reveal d2">
-          <div class="row"><div class="tag">Culture</div><strong>Secondhand is normalized.</strong><span>Demand exists</span></div>
-          <div class="row"><div class="tag">Economics</div><strong>CAC is rising. LTV needs expansion.</strong><span>Revenue layer</span></div>
-          <div class="row"><div class="tag">Regulation</div><strong>Circular responsibility is moving from optional to expected.</strong><span>Pressure</span></div>
-          <div class="row"><div class="tag">Technology</div><strong>APIs, pricing and logistics make resale scalable.</strong><span>Infrastructure</span></div>
-        </div>
-      </div>
-      <div class="slide-index">06 / 08</div>
-    </section>
+    <main>
 
-    <section class="slide dark">
-      <div class="container">
-        <div class="split end">
-          <div>
-            <div class="kicker reveal">07 · Traction</div>
-            <h2 class="headline reveal d1">We are not testing. <span class="neon">We are growing.</span></h2>
-          </div>
-          <div class="dark-card reveal d2">
-            <div class="mini-label">Commercial proof</div>
-            <div class="bar-chart" aria-hidden="true">
-              <div class="bar dim" style="height:30%" data-val="Live" data-label="2024"></div>
-              <div class="bar" style="height:48%" data-val="8" data-label="Brands"></div>
-              <div class="bar" style="height:64%" data-val="FCB" data-label="Sports"></div>
-              <div class="bar" style="height:78%" data-val="Seed" data-label="Now"></div>
+      <!-- ══════════════════════════════════════════════
+           01 · COVER
+      ══════════════════════════════════════════════ -->
+      <section id="cover" class="slide slide--grid" data-title="Cover">
+        <div class="container cover-layout">
+          <div class="section-label">01 Cover</div>
+          <h1 class="headline-xl">
+            Turning Circularity Into New Business Units for Brands
+          </h1>
+          <div class="lead-block cover-lead">
+            <span class="accent-bar" aria-hidden="true"></span>
+            <div>
+              <p class="sub-text"
+                 data-en="White-label SaaS platform for brands to activate, scale, and monetize their circular economy without building it from scratch."
+                 data-es="Plataforma SaaS white-label para que las marcas activen, escalen y monetizen su segunda vida sin construirla desde cero.">
+                Plataforma SaaS white-label para que las marcas activen, escalen y monetizen su segunda vida sin construirla desde cero.
+              </p>
+              </p>
             </div>
           </div>
         </div>
-        <div class="logo-grid reveal d3">
-          <div class="logo">Armand Basi</div><div class="logo">Munich</div><div class="logo">FC Barcelona</div><div class="logo">Casas</div><div class="logo">Bad Habits</div>
-        </div>
-      </div>
-      <div class="slide-index">07 / 08</div>
-    </section>
+      </section>
 
-    <section class="slide dark">
-      <div class="container">
-        <div class="kicker reveal">08 · Business Model</div>
-        <h2 class="headline reveal d1">Recurring SaaS with transaction upside.</h2>
-        <div class="money-grid reveal d2">
-          <div class="money"><h3>SaaS MRR</h3><div class="value">€400–10K</div><p>Monthly fee by brand tier and operational scope.</p></div>
-          <div class="money"><h3>Take-rate</h3><div class="value"><span class="neon-text">10–15%</span></div><p>Variable revenue on brand-owned resale transactions.</p></div>
-        </div>
-        <div class="metric-row reveal d3" style="margin-top:80px">
-          <div class="metric"><b>Seed</b><small>Opening to scale sales</small></div>
-          <div class="metric"><b>AI</b><small>Pricing intelligence</small></div>
-          <div class="metric"><b>EU</b><small>International expansion</small></div>
-          <div class="metric"><b>Drelife</b><small>Official resale infrastructure</small></div>
-        </div>
-      </div>
-      <div class="slide-index">08 / 08</div>
-    </section>
-  </main>
+      <!-- ══════════════════════════════════════════════
+           02 · MARKET OPPORTUNITY
+      ══════════════════════════════════════════════ -->
+      <section id="market" class="slide" data-title="Market">
+        <div class="container">
+          <div class="section-label" data-en="02 Market Opportunity" data-es="02 Oportunidad de Mercado">02 Oportunidad de Mercado</div>
+          <h2 class="headline">
+            <span data-en="Secondhand is not a trend." data-es="Secondhand is not a trend.">Secondhand is not a trend.</span><br />
+            <span data-en="It's the retail growth lever." data-es="It's the retail growth lever.">It's the retail growth lever.</span>
+          </h2>
+          <p class="sub-text" style="margin-top: 32px; max-width: 720px;"
+             data-en="The structural transformation is already happening and capital is moving."
+             data-es="La transformación estructural ya está pasando y el capital se está moviendo.">
+            La transformación estructural ya está pasando y el capital se está moviendo.
+          </p>
 
-  <script>
-    const progress=document.querySelector('[data-progress]');
-    const update=()=>{const h=document.documentElement;const max=h.scrollHeight-innerHeight;progress.style.width=(max?scrollY/max*100:0)+'%'};
-    addEventListener('scroll',update,{passive:true});update();
-    const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.18});
-    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-  </script>
-</body>
+          <div class="grid grid--three" style="margin-top: 72px;">
+            <div class="tile tile--hover">
+              <div class="tile-kicker" data-en="GLOBAL SECONDHAND APPAREL" data-es="ROPA DE SEGUNDA MANO GLOBAL">ROPA DE SEGUNDA MANO GLOBAL</div>
+              <div class="stat-value">$393B</div>
+              <div class="stat-label" data-en="Projected market size in 2030." data-es="Tamaño proyectado del mercado en 2030.">Tamaño proyectado del mercado en 2030.</div>
+            </div>
+            <div class="tile tile--hover">
+              <div class="tile-kicker" data-en="VS. TRADITIONAL RETAIL" data-es="VS. RETAIL TRADICIONAL">VS. RETAIL TRADICIONAL</div>
+              <div class="stat-value">2×</div>
+              <div class="stat-label" data-en="Recommerce growth speed." data-es="Velocidad de crecimiento del recommerce.">Velocidad de crecimiento del recommerce.</div>
+            </div>
+            <div class="tile tile--hover">
+              <div class="tile-kicker" data-en="OF EXPECTED GROWTH" data-es="DEL CRECIMIENTO ESPERADO">DEL CRECIMIENTO ESPERADO</div>
+              <div class="stat-value">70%+</div>
+              <div class="stat-label" data-en="Comes from Gen Z and Millennials." data-es="Procede de Gen Z y Millennials.">Procede de Gen Z y Millennials.</div>
+            </div>
+          </div>
+
+          <p class="sub-text" style="margin-top: 56px; color: var(--muted-strong); font-weight: 600;"
+             data-en="European regulation (EPR, AGEC) + ESG pressure = accelerated adoption in the next 24 months."
+             data-es="Regulación europea (EPR, AGEC) + presión ESG = adopción acelerada en los próximos 24 meses.">
+            Regulación europea (EPR, AGEC) + presión ESG = adopción acelerada en los próximos 24 meses.
+          </p>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════
+           03 · THE NEW CONSUMER
+      ══════════════════════════════════════════════ -->
+      <section id="consumer" class="slide slide--soft" data-title="Consumer">
+        <div class="container">
+          <div class="section-label" data-en="03 The New Consumer" data-es="03 El Nuevo Consumidor">03 El Nuevo Consumidor</div>
+          <h2 class="headline">
+            <span data-en="The consumer has already changed." data-es="El consumidor ya cambió.">El <span class="muted">consumidor</span> ya cambió.</span><br />
+            <span data-en="Brands, not yet." data-es="Las marcas, todavía no.">Las marcas, <span class="highlight">todavía no.</span></span>
+          </h2>
+          <p class="sub-text" style="margin-top: 32px; max-width: 720px;"
+             data-en="Gen Z and Millennials are redefining how they buy, sell, and connect with a brand."
+             data-es="Gen Z y Millennials están redefiniendo cómo se compra, se vende y se vincula con una marca.">
+            Gen Z y Millennials están redefiniendo cómo se compra, se vende y se vincula con una marca.
+          </p>
+
+          <div class="grid grid--four" style="margin-top: 72px;">
+            <div class="tile">
+              <div class="tile-kicker" data-en="ECONOMIC" data-es="ECONÓMICO">ECONÓMICO</div>
+              <div class="stat-label" style="margin-top: 24px;" data-en="Value, not status" data-es="Valor, no estatus">Valor, no estatus</div>
+              <div class="stat-detail" data-en="Smart shopping: premium product at a fraction of the price." data-es="Compra inteligente: producto premium a fracción del precio.">Compra inteligente: producto premium a fracción del precio.</div>
+            </div>
+            <div class="tile">
+              <div class="tile-kicker" data-en="IDENTITY" data-es="IDENTITARIO">IDENTITARIO</div>
+              <div class="stat-label" style="margin-top: 24px;" data-en="Curation over consumption" data-es="Curaduría sobre consumo">Curaduría sobre consumo</div>
+              <div class="stat-detail" data-en="Unique, limited, and collectible matters more than new." data-es="Lo único, lo limitado y lo coleccionable pesan más que lo nuevo.">Lo único, lo limitado y lo coleccionable pesan más que lo nuevo.</div>
+            </div>
+            <div class="tile">
+              <div class="tile-kicker" data-en="DIGITAL" data-es="DIGITAL">DIGITAL</div>
+              <div class="stat-label" style="margin-top: 24px;" data-en="C2C native" data-es="C2C nativo">C2C nativo</div>
+              <div class="stat-detail" data-en="Vinted, Wallapop, Depop, and eBay are part of daily consumption." data-es="Vinted, Wallapop, Depop y eBay forman parte del consumo diario.">Vinted, Wallapop, Depop y eBay forman parte del consumo diario.</div>
+            </div>
+            <div class="tile">
+              <div class="tile-kicker" data-en="ETHICAL" data-es="ÉTICO">ÉTICO</div>
+              <div class="stat-label" style="margin-top: 24px;" data-en="Brand with purpose" data-es="Marca con propósito">Marca con propósito</div>
+              <div class="stat-detail" data-en="They demand traceability, transparency, and real commitment." data-es="Exigen trazabilidad, transparencia y compromiso real.">Exigen trazabilidad, transparencia y compromiso real.</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════
+           04 · THE SOLUTION
+      ══════════════════════════════════════════════ -->
+      <section id="solution" class="slide" data-title="Solution">
+        <div class="container">
+          <div class="section-label" data-en="04 The Solution" data-es="04 La Solución">04 La Solución</div>
+          <h2 class="headline">
+            <span data-en="Drelife is the white-label infrastructure for the second life." data-es="Drelife es la infraestructura white-label de la segunda vida.">Drelife es la <span class="highlight">infraestructura<br />white-label</span> de la segunda vida.</span>
+          </h2>
+          <p class="sub-text" style="margin-top: 32px; max-width: 820px;"
+             data-en="Brands no longer build this official channel. They activate it and monetize it in weeks with our end-to-end platform that turns circularity into a profitable new business unit."
+             data-es="Las marcas ya no construyen este canal oficial. Lo activan y lo monetizan en semanas con nuestra plataforma end-to-end que convierte la circularidad en una nueva unidad de negocio rentable.">
+            Las marcas ya no construyen este <strong>canal oficial</strong>. Lo <strong>activan</strong> y lo <strong>monetizan</strong> en semanas con nuestra plataforma end-to-end que convierte la circularidad en una nueva unidad de negocio rentable.
+          </p>
+
+          <div class="grid grid--two" style="margin-top: 72px; gap: 32px;">
+            <div style="padding: 48px 40px; background: var(--panel); border: 1px solid var(--divider); border-radius: 12px;">
+              <div class="tile-kicker">VALUE PROPOSITION</div>
+              <div style="margin-top: 32px; font-size: 18px; line-height: 1.7; color: var(--foreground);"
+                   data-en="White-label SaaS platform that enables brands to launch and scale their full circular ecosystem from resale to repair services, returns management, and recycling without building infrastructure from scratch."
+                   data-es="Plataforma SaaS white-label que permite a las marcas lanzar y escalar su ecosistema circular completo desde resale hasta servicios de reparación, gestión de devoluciones y reciclaje sin construir la infraestructura desde cero.">
+                Plataforma <strong>SaaS white-label</strong> que permite a las marcas lanzar y escalar su ecosistema circular completo desde resale hasta servicios de reparación, gestión de devoluciones y reciclaje sin construir la infraestructura desde cero.
+              </div>
+            </div>
+            <div style="padding: 48px 40px; background: var(--panel); border: 1px solid var(--divider); border-radius: 12px;">
+              <div class="tile-kicker">INFRASTRUCTURE AS A SERVICE</div>
+              <div style="margin-top: 32px; font-size: 18px; line-height: 1.7; color: var(--foreground);"
+                   data-en="Plug-and-play technology stack with integrated end-to-end operations. The brand keeps full control of the channel, user experience, and first-party data."
+                   data-es="Stack tecnológico plug-and-play con operaciones end-to-end integradas. La marca mantiene el control total del canal, la experiencia de usuario y los datos first-party.">
+                Stack tecnológico <strong>plug-and-play</strong> con operaciones end-to-end integradas. La marca mantiene el control total del canal, la experiencia de usuario y los datos first-party.
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid--four" style="margin-top: 72px;">
+            <div class="tile tile--hover">
+              <div class="tile-kicker">CAPEX</div>
+              <div class="stat-value" style="font-size: 52px;">−85%</div>
+              <div class="stat-detail" style="margin-top: 16px;" data-en="vs. building in-house" data-es="vs. construir in-house">vs. construir in-house</div>
+            </div>
+            <div class="tile tile--hover">
+              <div class="tile-kicker">GO-LIVE</div>
+              <div class="stat-value" style="font-size: 52px;">Semanas</div>
+              <div class="stat-detail" style="margin-top: 16px;" data-en="not 18-24 months" data-es="no 18-24 meses">no 18-24 meses</div>
+            </div>
+            <div class="tile tile--hover">
+              <div class="tile-kicker">STACK</div>
+              <div class="stat-value" style="font-size: 52px;">Plug-and-play</div>
+              <div class="stat-detail" style="margin-top: 16px;" data-en="native integration" data-es="integración nativa">integración nativa</div>
+            </div>
+            <div class="tile tile--hover">
+              <div class="tile-kicker">DATA</div>
+              <div class="stat-value" style="font-size: 52px;">1st party</div>
+              <div class="stat-detail" style="margin-top: 16px;" data-en="100% brand-owned" data-es="100% de la marca">100% de la marca</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════
+           05 · BLUE OCEAN · VERTICALS
+      ══════════════════════════════════════════════ -->
+      <section id="verticals" class="slide slide--dark" data-title="Verticals">
+        <div class="container">
+          <div class="section-label" data-en="05 Blue Ocean · Sports" data-es="05 Océano Azul · Deportes">05 Océano Azul · Deportes</div>
+          <h2 class="headline" style="color: #ffffff;">
+            <span data-en="Three verticals. One platform." data-es="Tres verticales. Una sola plataforma.">Tres verticales.<br />
+            Una sola <span class="highlight">plataforma.</span></span>
+          </h2>
+          <p class="sub-text" style="margin-top: 32px; max-width: 720px;"
+             data-en="Where the market already is, where it's growing fastest, and where no one has arrived yet."
+             data-es="Donde el mercado ya está, donde está creciendo más rápido y donde nadie ha llegado todavía.">
+            Donde el mercado ya está, donde está creciendo más rápido y donde nadie ha llegado todavía.
+          </p>
+
+          <div class="grid grid--three" style="margin-top: 72px;">
+            <div class="tile" style="border-color: rgba(255,255,255,0.1);">
+              <div class="tile-kicker" style="color: #999;">01</div>
+              <div class="stat-label" style="margin-top: 24px; color: #ffffff; font-size: 28px;">Fashion Retail</div>
+              <div class="tile-kicker" style="margin-top: 32px; color: #999;">TAM</div>
+              <div class="stat-value" style="color: var(--accent); font-size: 48px;">$393B</div>
+              <div class="stat-detail" style="color: #999;">global 2030</div>
+              <div style="margin-top: 24px; color: #fff; font-size: 18px; font-weight: 700;">+28%</div>
+              <div class="stat-detail" style="color: #999;" data-en="extra revenue / brand" data-es="ingresos extra / marca">ingresos extra / marca</div>
+            </div>
+            <div class="tile" style="border-color: rgba(255,255,255,0.1);">
+              <div class="tile-kicker" style="color: #999;">02</div>
+              <div class="stat-label" style="margin-top: 24px; color: #ffffff; font-size: 28px;" data-en="Collectibles" data-es="Coleccionismo">Coleccionismo</div>
+              <div class="tile-kicker" style="margin-top: 32px; color: #999;">TAM</div>
+              <div class="stat-value" style="color: var(--accent); font-size: 48px;">200B€</div>
+              <div class="stat-detail" style="color: #999;">memorabilia 2032</div>
+              <div style="margin-top: 24px; color: #fff; font-size: 18px; font-weight: 700;">8×</div>
+              <div class="stat-detail" style="color: #999;" data-en="vs. current market (26B€)" data-es="vs. mercado actual (26B€)">vs. mercado actual (26B€)</div>
+            </div>
+            <div class="tile" style="border-color: rgba(255,255,255,0.1);">
+              <div class="tile-kicker" style="color: #999;">03</div>
+              <div class="stat-label" style="margin-top: 24px; color: #ffffff; font-size: 28px;">Fan Clubs</div>
+              <div class="tile-kicker" style="margin-top: 32px; color: #999;">TAM</div>
+              <div class="stat-value" style="color: var(--accent); font-size: 48px;">10k€</div>
+              <div class="stat-detail" style="color: #999;">MRR + 15% var.</div>
+              <div style="margin-top: 24px; color: #fff; font-size: 18px; font-weight: 700;">High-LTV</div>
+              <div class="stat-detail" style="color: #999;">fan engagement</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════
+           06 · ECOSYSTEM
+      ══════════════════════════════════════════════ -->
+      <section id="ecosystem" class="slide" data-title="Ecosystem">
+        <div class="container">
+          <div class="section-label" data-en="06 Ecosystem" data-es="06 Ecosistema">06 Ecosistema</div>
+          <h2 class="headline">
+            <span data-en="We don't go alone. We go with the industry leaders." data-es="No vamos solos. Vamos con los líderes del sector.">No vamos solos.<br />
+            Vamos con los <span class="highlight">líderes del sector.</span></span>
+          </h2>
+          <p class="sub-text" style="margin-top: 32px; max-width: 820px;"
+             data-en="Native integration with the infrastructure enterprise brands already use: white-label premium experience, integrated data layer, and scalable operations with partners that validate expansion into new verticals."
+             data-es="Integración nativa con la infraestructura que ya usan las marcas enterprise: white-label premium experience, integrated data layer y operaciones escalables con partners que validan la expansión hacia nuevas verticales.">
+            Integración nativa con la infraestructura que ya usan las marcas enterprise: white-label premium experience, <strong>integrated data layer</strong> y <strong>operaciones escalables</strong> con partners que validan la expansión hacia nuevas verticales.
+          </p>
+
+          <div class="partner-grid">
+            <div class="partner-card">
+              <div class="partner-label">01 · OPERACIONES</div>
+              <div style="height: 40px; display: flex; align-items: center;">
+                <div style="font-size: 24px; font-weight: 800; letter-spacing: -0.02em;">Bleckmann</div>
+              </div>
+              <div class="partner-desc" data-en="Leader in fashion logistics." data-es="Líder en logística de moda.">Líder en logística de moda.</div>
+            </div>
+            <div class="partner-card">
+              <div class="partner-label">02 · E-COMMERCE</div>
+              <div style="height: 40px; display: flex; align-items: center;">
+                <div style="font-size: 24px; font-weight: 800; letter-spacing: -0.02em;">Shopify</div>
+              </div>
+              <div class="partner-desc" data-en="Official integration partner." data-es="Partner oficial de integración.">Partner oficial de integración.</div>
+            </div>
+            <div class="partner-card">
+              <div class="partner-label">03 · DATA CIRCULAR</div>
+              <div style="height: 40px; display: flex; align-items: center;">
+                <div style="font-size: 24px; font-weight: 800; letter-spacing: -0.02em;">BCome</div>
+              </div>
+              <div class="partner-desc" data-en="Traceability and ESG metrics." data-es="Trazabilidad y métricas ESG.">Trazabilidad y métricas ESG.</div>
+            </div>
+            <div class="partner-card">
+              <div class="partner-label">04 · LOBBY & ESG</div>
+              <div style="height: 40px; display: flex; align-items: center;">
+                <div style="font-size: 24px; font-weight: 800; letter-spacing: -0.02em;">MOVE!</div>
+              </div>
+              <div class="partner-desc" data-en="Regulatory voice in Europe." data-es="Voz regulatoria en Europa.">Voz regulatoria en Europa.</div>
+            </div>
+            <div class="partner-card">
+              <div class="partner-label">05 · R&D / SPORT</div>
+              <div style="height: 40px; display: flex; align-items: center;">
+                <div style="font-size: 24px; font-weight: 800; letter-spacing: -0.02em;">FC Barcelona</div>
+              </div>
+              <div class="partner-desc" data-en="Global center of excellence." data-es="Centro mundial de excelencia.">Centro mundial de excelencia.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════
+           07 · TRACTION
+      ══════════════════════════════════════════════ -->
+      <section id="traction" class="slide slide--soft" data-title="Traction">
+        <div class="container">
+          <div class="section-label">07 Traction</div>
+          <h2 class="headline">
+            "We are <span class="muted">not</span> testing.<br />
+            We are <span class="highlight">growing.</span>"
+          </h2>
+          <p class="sub-text" style="margin-top: 32px; max-width: 720px;"
+             data-en="Leading brands that have already activated their circular channel with Drelife."
+             data-es="Marcas líderes que ya han activado su canal circular con Drelife.">
+            Marcas líderes que ya han activado su canal circular con Drelife.
+          </p>
+        </div>
+      </section>
+
+      <section class="logo-carousel" aria-label="Client logos">
+        <div class="logo-carousel__track">
+          <div class="logo-carousel__group">
+            <img src="logos/1.png" alt="RIA Menorca" />
+            <img src="logos/2.png" alt="Bad Habits" />
+            <img src="logos/3.png" alt="Armand Basi" />
+            <img src="logos/4.png" alt="Munich" />
+            <img src="logos/5.png" alt="Pons Quintana" />
+            <img src="logos/6.png" alt="Brownie" />
+            <img src="logos/7.png" alt="Natura" />
+            <img src="logos/8.png" alt="Pretty Ballerinas" />
+            <img src="logos/9.png" alt="Mira" />
+            <img src="logos/10.png" alt="FCB" />
+            <img src="logos/11.png" alt="Loewe" />
+            <img src="logos/12.png" alt="Camper" />
+            <img src="logos/13.png" alt="Outlet Moto" />
+            <img src="logos/14.png" alt="All Iron" />
+            <img src="logos/15.png" alt="24 Kilates" />
+            <img src="logos/16.png" alt="M+" />
+            <img src="logos/17.png" alt="Velodrom" />
+            <img src="logos/18.png" alt="Invitadisima" />
+            <img src="logos/19.png" alt="Thinking Mu" />
+            <img src="logos/20.png" alt="Casas" />
+          </div>
+          <div class="logo-carousel__group" aria-hidden="true">
+            <img src="logos/1.png" alt="" />
+            <img src="logos/2.png" alt="" />
+            <img src="logos/3.png" alt="" />
+            <img src="logos/4.png" alt="" />
+            <img src="logos/5.png" alt="" />
+            <img src="logos/6.png" alt="" />
+            <img src="logos/7.png" alt="" />
+            <img src="logos/8.png" alt="" />
+            <img src="logos/9.png" alt="" />
+            <img src="logos/10.png" alt="" />
+            <img src="logos/11.png" alt="" />
+            <img src="logos/12.png" alt="" />
+            <img src="logos/13.png" alt="" />
+            <img src="logos/14.png" alt="" />
+            <img src="logos/15.png" alt="" />
+            <img src="logos/16.png" alt="" />
+            <img src="logos/17.png" alt="" />
+            <img src="logos/18.png" alt="" />
+            <img src="logos/19.png" alt="" />
+            <img src="logos/20.png" alt="" />
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════
+           08 · BUSINESS MODEL
+      ══════════════════════════════════════════════ -->
+      <section id="model" class="slide" data-title="Model">
+        <div class="container">
+          <div class="section-label">08 Business Model</div>
+          <h2 class="headline">
+            <span data-en="Dual engine:" data-es="Doble motor:">Doble motor:</span><br />
+            <span class="highlight" data-en="MRR + variable take-rate." data-es="MRR + take-rate variable.">MRR + take-rate variable.</span>
+          </h2>
+          <p class="sub-text" style="margin-top: 32px; max-width: 720px;"
+             data-en="Predictable recurring revenue plus linear upside tied to each client's circular volume."
+             data-es="Ingreso recurrente predecible + upside lineal con el volumen circular del cliente.">
+            Ingreso recurrente predecible + upside lineal con el volumen circular del cliente.
+          </p>
+
+          <div class="grid grid--two" style="margin-top: 72px; gap: 48px;">
+            <div class="neon-box-dark">
+              <div class="tile-kicker" style="color: #111;">01 / RECURRING (SaaS)</div>
+              <div class="stat-value" style="margin-top: 32px; color: #111; font-size: 64px;">400€ – 10.000€</div>
+              <div class="stat-label" style="color: #111; margin-top: 20px;" data-en="/ month, by tier and vertical." data-es="/ mes, según tier y vertical.">/ mes, según tier y vertical.</div>
+              <div class="stat-detail" style="color: #111; margin-top: 16px; opacity: 0.7;" data-en="Retail Tiers (T1 / T2 / T3) by revenue · Fan Clubs: fixed 10k€ MRR" data-es="Retail Tiers (T1 / T2 / T3) por facturación · Fan Clubs: 10k€ MRR fijo">Retail Tiers (T1 / T2 / T3) por facturación · Fan Clubs: 10k€ MRR fijo</div>
+            </div>
+            <div style="padding: 56px; background: #0a0a0a; border-radius: 16px; color: #fff;">
+              <div class="tile-kicker" style="color: #999;">02 / VARIABLE (TAKE-RATE)</div>
+              <div class="stat-value" style="margin-top: 32px; color: var(--accent); font-size: 64px;">10% – 15%</div>
+              <div class="stat-label" style="color: #fff; margin-top: 20px;" data-en="on each circular transaction on platform." data-es="sobre cada transacción circular en plataforma.">sobre cada transacción circular en plataforma.</div>
+              <div class="stat-detail" style="color: #999; margin-top: 16px;">Resale 15% · Repair 10% · Recycle 15% · Returns variable</div>
+            </div>
+          </div>
+
+          <p class="sub-text" style="margin-top: 56px; font-weight: 600; color: var(--muted-strong);"
+             data-en="Model already validated with 8 paying clients. 2025 cohort already billing."
+             data-es="Modelo ya validado con 8 clientes de pago. Cohorte 2025 facturando.">
+            Modelo ya validado con 8 clientes de pago. Cohorte 2025 facturando.
+          </p>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════
+           09 · UNIT ECONOMICS
+      ══════════════════════════════════════════════ -->
+      <section id="economics" class="slide slide--soft" data-title="Economics">
+        <div class="container">
+          <div class="section-label">09 Unit Economics</div>
+          <h2 class="headline">
+            <span data-en="The numbers that" data-es="Los números que">Los números que</span><br />
+            <span data-en="matter in the" data-es="importan a">importan a</span> <span class="highlight" data-en="long term." data-es="largo plazo.">largo plazo.</span>
+          </h2>
+
+          <div class="grid grid--four" style="margin-top: 72px;">
+            <div class="tile tile--hover">
+              <div class="tile-kicker">ARR ACTUAL</div>
+              <div class="stat-value"><span class="metric-x">X</span>k€</div>
+              <div class="stat-label">Annual Recurring Revenue</div>
+              <div class="stat-detail" data-en="Based on <span class='metric-x'>X</span> paying clients" data-es="Basado en <span class='metric-x'>X</span> clientes pagando">Basado en <span class="metric-x">X</span> clientes pagando</div>
+            </div>
+            <div class="tile tile--hover">
+              <div class="tile-kicker">GROWTH RATE</div>
+              <div class="stat-value"><span class="metric-x">X</span>%</div>
+              <div class="stat-label">MoM Growth</div>
+              <div class="stat-detail" data-en="Last <span class='metric-x'>X</span> months" data-es="Últimos <span class='metric-x'>X</span> meses">Últimos <span class="metric-x">X</span> meses</div>
+            </div>
+            <div class="tile tile--hover">
+              <div class="tile-kicker">CAC</div>
+              <div class="stat-value"><span class="metric-x">X</span>k€</div>
+              <div class="stat-label">Customer Acquisition Cost</div>
+              <div class="stat-detail">Enterprise B2B</div>
+            </div>
+            <div class="tile tile--hover">
+              <div class="tile-kicker">LTV</div>
+              <div class="stat-value"><span class="metric-x">X</span>k€</div>
+              <div class="stat-label">Lifetime Value</div>
+              <div class="stat-detail" data-en="36-month projection" data-es="Proyección 36 meses">Proyección 36 meses</div>
+            </div>
+          </div>
+
+          <div class="grid grid--three" style="margin-top: 56px;">
+            <div class="tile tile--hover">
+              <div class="tile-kicker">PAYBACK PERIOD</div>
+              <div class="stat-value" data-en="<span class='metric-x'>X</span> months" data-es="<span class='metric-x'>X</span> meses"><span class="metric-x">X</span> meses</div>
+              <div class="stat-detail" data-en="Time to recover CAC" data-es="Tiempo para recuperar CAC">Tiempo para recuperar CAC</div>
+            </div>
+            <div class="tile tile--hover">
+              <div class="tile-kicker">CHURN RATE</div>
+              <div class="stat-value"><span class="metric-x">X</span>%</div>
+              <div class="stat-detail" data-en="Annual" data-es="Anual">Anual</div>
+            </div>
+            <div class="tile tile--hover">
+              <div class="tile-kicker">RUNWAY</div>
+              <div class="stat-value" data-en="<span class='metric-x'>X</span> months" data-es="<span class='metric-x'>X</span> meses"><span class="metric-x">X</span> meses</div>
+              <div class="stat-detail" data-en="With the 600k€ pre-seed" data-es="Con los 600k€ de pre-seed">Con los 600k€ de pre-seed</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════
+           10 · COMPETITIVE LANDSCAPE
+      ══════════════════════════════════════════════ -->
+      <section id="competitive" class="slide" data-title="Competitive">
+        <div class="container">
+          <div class="section-label">10 Competitive Landscape</div>
+          <h2 class="headline">
+            <span data-en="We don't compete." data-es="No competimos.">No competimos.</span><br />
+            <span class="highlight" data-en="We enable." data-es="Habilitamos.">Habilitamos.</span>
+          </h2>
+          <p class="sub-text" style="margin-top: 32px; max-width: 720px;"
+             data-en="Alternatives require massive CAPEX, long time-to-market, or giving up channel control. Drelife is the only end-to-end white-label infrastructure."
+             data-es="Las alternativas requieren CAPEX masivo, time-to-market largo, o ceden control del canal. Drelife es la única infraestructura white-label end-to-end.">
+            Las alternativas requieren CAPEX masivo, time-to-market largo, o ceden control del canal. Drelife es la única infraestructura white-label end-to-end.
+          </p>
+
+          <div class="grid grid--three" style="margin-top: 72px;">
+            <div class="tile">
+              <div class="tile-kicker">CONSTRUIR IN-HOUSE</div>
+              <div class="stat-label" style="margin-top: 24px; font-size: 20px;" data-en="The brand builds its own platform" data-es="La marca construye su propia plataforma">La marca construye su propia plataforma</div>
+              <div class="stat-detail" style="margin-top: 16px;">
+                <strong style="color: #d32f2f;">✗</strong> <span data-en="18-24 months of development" data-es="18-24 meses de desarrollo">18-24 meses de desarrollo</span><br />
+                <strong style="color: #d32f2f;">✗</strong> CAPEX €500k-2M<br />
+                <strong style="color: #d32f2f;">✗</strong> Equipo tech dedicado<br />
+                <strong style="color: #d32f2f;">✗</strong> Sin operaciones circulares
+              </div>
+            </div>
+            <div class="tile">
+              <div class="tile-kicker">MARKETPLACES C2C</div>
+              <div class="stat-label" style="margin-top: 24px; font-size: 20px;">Vinted, Wallapop, Depop, Vestiaire</div>
+              <div class="stat-detail" style="margin-top: 16px;">
+                <strong style="color: #d32f2f;">✗</strong> <span data-en="The brand loses control" data-es="La marca pierde control">La marca pierde control</span><br />
+                <strong style="color: #d32f2f;">✗</strong> Sin white-label<br />
+                <strong style="color: #d32f2f;">✗</strong> Zero first-party data<br />
+                <strong style="color: #d32f2f;">✗</strong> Compite con otras marcas
+              </div>
+            </div>
+            <div class="tile">
+              <div class="tile-kicker">COMPETITORS (Reflaunt, Archive)</div>
+              <div class="stat-label" style="margin-top: 24px; font-size: 20px;" data-en="Resale SaaS platforms" data-es="Plataformas SaaS de resale">Plataformas SaaS de resale</div>
+              <div class="stat-detail" style="margin-top: 16px;">
+                <strong style="color: #ff9800;">△</strong> <span data-en="Resale only (1 module)" data-es="Solo Resale (1 módulo)">Solo Resale (1 módulo)</span><br />
+                <strong style="color: #ff9800;">△</strong> Sin operaciones end-to-end<br />
+                <strong style="color: #ff9800;">△</strong> Sin verticales de sports/collectibles<br />
+                <strong style="color: #d32f2f;">✗</strong> No ofrecen Repair/Returns/Recycle
+              </div>
+            </div>
+          </div>
+
+          <div class="neon-box-dark" style="margin-top: 72px;">
+            <div class="tile-kicker" style="color: #111;">DRELIFE ADVANTAGE</div>
+            <div style="margin-top: 24px; font-size: 20px; font-weight: 700; color: #111; line-height: 1.4;">
+              <strong style="color: #0a0a0a;">✓</strong> <span data-en="4 monetizable modules (Resale + Repair + Returns + Recycle)" data-es="4 módulos monetizables (Resale + Repair + Returns + Recycle)">4 módulos monetizables (Resale + Repair + Returns + Recycle)</span><br />
+              <strong style="color: #0a0a0a;">✓</strong> White-label 100% + first-party data<br />
+              <strong style="color: #0a0a0a;">✓</strong> <span data-en="Go-live in weeks, not months" data-es="Go-live en semanas, no meses">Go-live en semanas, no meses</span><br />
+              <strong style="color: #0a0a0a;">✓</strong> <span data-en="End-to-end circular operations with Bleckmann" data-es="Operaciones circulares end-to-end con Bleckmann">Operaciones circulares end-to-end con Bleckmann</span><br />
+              <strong style="color: #0a0a0a;">✓</strong> <span data-en="Only player in sports collectibles + fan clubs" data-es="Único player en sports collectibles + fan clubs">Único player en sports collectibles + fan clubs</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════
+           11 · TEAM
+      ══════════════════════════════════════════════ -->
+      <section id="team" class="slide slide--soft" data-title="Team">
+        <div class="container">
+          <div class="section-label">11 Team</div>
+          <h2 class="headline">
+            <span data-en="The team building" data-es="El equipo que está">El equipo que está</span><br />
+            <span class="highlight" data-en="the future" data-es="construyendo el futuro">construyendo el futuro</span><br />
+            <span data-en="of circularity." data-es="de la circularidad.">de la circularidad.</span>
+          </h2>
+          <p class="sub-text" style="margin-top: 32px; max-width: 720px;"
+             data-en="Founders with combined experience in fashion retail, technology, and circular operations."
+             data-es="Fundadores con experiencia combinada en fashion retail, tecnología y operaciones circulares.">
+            Fundadores con experiencia combinada en fashion retail, tecnología y operaciones circulares.
+          </p>
+
+          <div class="grid grid--three" style="margin-top: 72px; gap: 48px;">
+            <div style="padding: 48px 40px; background: #ffffff; border: 1px solid var(--divider); border-radius: 12px;">
+              <div style="width: 80px; height: 80px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 28px;">
+                <span style="font-size: 32px; font-weight: 800; color: #111;">AM</span>
+              </div>
+              <h3 style="font-size: 24px; font-weight: 780; line-height: 1.2; margin: 0 0 8px;">Alberto Miralles</h3>
+              <div style="font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin-bottom: 20px;">CEO & CO-FUNDADOR</div>
+              <p style="font-size: 15px; line-height: 1.6; color: var(--muted); margin: 0;">
+                [Añade aquí la biografía de Alberto: experiencia previa, expertise relevante, logros clave, máximo 3-4 líneas]
+              </p>
+            </div>
+
+            <div style="padding: 48px 40px; background: #ffffff; border: 1px solid var(--divider); border-radius: 12px;">
+              <div style="width: 80px; height: 80px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 28px;">
+                <span style="font-size: 32px; font-weight: 800; color: #111;">ME</span>
+              </div>
+              <h3 style="font-size: 24px; font-weight: 780; line-height: 1.2; margin: 0 0 8px;">Manel Echevarría</h3>
+              <div style="font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin-bottom: 20px;">CO-FUNDADOR</div>
+              <p style="font-size: 15px; line-height: 1.6; color: var(--muted); margin: 0;">
+                [Añade aquí la biografía de Manel: experiencia previa, expertise relevante, logros clave, máximo 3-4 líneas]
+              </p>
+            </div>
+
+            <div style="padding: 48px 40px; background: #ffffff; border: 1px solid var(--divider); border-radius: 12px;">
+              <div style="width: 80px; height: 80px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 28px;">
+                <span style="font-size: 32px; font-weight: 800; color: #111;">SP</span>
+              </div>
+              <h3 style="font-size: 24px; font-weight: 780; line-height: 1.2; margin: 0 0 8px;">Samuel Patiño</h3>
+              <div style="font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin-bottom: 20px;">CTO & CO-FUNDADOR</div>
+              <p style="font-size: 15px; line-height: 1.6; color: var(--muted); margin: 0;">
+                [Añade aquí la biografía de Samuel: experiencia previa, expertise relevante, logros clave, máximo 3-4 líneas]
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════
+           12 · THE ROUND
+      ══════════════════════════════════════════════ -->
+      <section id="round" class="slide slide--dark" data-title="Round">
+        <div class="container">
+          <div class="section-label">12 Pre-seed Round</div>
+          <h2 class="headline" style="color: #ffffff;">
+            <span data-en="Pre-seed closed." data-es="Pre-seed cerrada.">Pre-seed cerrada.</span><br />
+            <span data-en="Opening" data-es="Abriendo">Abriendo</span> <span class="highlight" data-en="seed to scale." data-es="seed para escalar.">seed para escalar.</span>
+          </h2>
+          <p class="sub-text" style="margin-top: 32px; max-width: 720px;"
+             data-en="Backed by a high-performance cap table. Adding partners that accelerate expansion."
+             data-es="Ya con un cap table de alto rendimiento. Sumando los partners que aceleran la expansión.">
+            Ya con un cap table de alto rendimiento. Sumando los partners que aceleran la expansión.
+          </p>
+
+          <div class="grid grid--three" style="margin-top: 72px; gap: 48px;">
+            <div style="padding: 48px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px;">
+              <div class="tile-kicker" style="color: #999;" data-en="PRE-SEED CLOSED" data-es="PRE-SEED CERRADA">PRE-SEED CERRADA</div>
+              <div class="stat-value" style="margin-top: 32px; color: var(--accent); font-size: 72px;">600k€</div>
+              <div class="stat-label" style="color: #fff; margin-top: 20px;" data-en="round completed in 2025." data-es="ronda completada en 2025.">ronda completada en 2025.</div>
+              <div class="stat-detail" style="color: #999; margin-top: 16px;" data-en="Product in market · 8 paying clients · top-tier cap table" data-es="Producto en mercado · 8 clientes pagando · cap table top tier">Producto en mercado · 8 clientes pagando · cap table top tier</div>
+            </div>
+            <div style="padding: 48px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px;">
+              <div class="tile-kicker" style="color: #999;">ON THE CAP TABLE</div>
+              <div style="margin-top: 32px; color: #fff; font-size: 16px; line-height: 1.8;">
+                <strong style="color: var(--accent);">STRATEGIC</strong> Barça Innovation Hub<br />
+                <strong style="color: var(--accent);">NBA</strong> Ricky Rubio<br />
+                <strong style="color: var(--accent);">PGA</strong> Rafa Cabrera<br />
+                <strong style="color: var(--accent);">NETWORK</strong> ESADE BAN
+              </div>
+              <div class="stat-detail" style="color: #999; margin-top: 24px;" data-en="Operators and athletes who understand the sector." data-es="Operadores y atletas que entienden el sector.">Operadores y atletas que entienden el sector.</div>
+            </div>
+            <div style="padding: 48px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px;">
+              <div class="tile-kicker" style="color: #999;">WHAT WE'RE OPENING</div>
+              <div style="margin-top: 32px; color: #fff; font-size: 16px; line-height: 1.8;">
+                <strong style="color: var(--accent);">01</strong> <span data-en="International sales" data-es="Sales internacional">Sales internacional</span><br />
+                <span style="color: #999; font-size: 14px;" data-en="Central EU, UK, North." data-es="EU Central, UK, Norte.">EU Central, UK, Norte.</span><br /><br />
+                <strong style="color: var(--accent);">02</strong> AI Pricing Engine<br />
+                <span style="color: #999; font-size: 14px;" data-en="Circular dynamic pricing." data-es="Pricing dinámico circular.">Pricing dinámico circular.</span><br /><br />
+                <strong style="color: var(--accent);">03</strong> <span data-en="Logistics hubs" data-es="Hubs logísticos">Hubs logísticos</span><br />
+                <span style="color: #999; font-size: 14px;" data-en="Bleckmann in 2 new countries." data-es="Bleckmann en 2 nuevos países.">Bleckmann en 2 nuevos países.</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top: 72px; padding: 56px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px;">
+            <div class="tile-kicker" style="color: #999;">SEED ROUND TERMS</div>
+            <div class="grid grid--four" style="margin-top: 40px; gap: 32px;">
+              <div>
+                <div style="font-size: 11px; font-weight: 800; color: #999; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 12px;">RAISING</div>
+                <div style="font-size: 42px; font-weight: 800; color: var(--accent); line-height: 1;"><span class="metric-x">X</span>M€</div>
+              </div>
+              <div>
+                <div style="font-size: 11px; font-weight: 800; color: #999; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 12px;">PRE-MONEY</div>
+                <div style="font-size: 42px; font-weight: 800; color: var(--accent); line-height: 1;"><span class="metric-x">X</span>M€</div>
+              </div>
+              <div>
+                <div style="font-size: 11px; font-weight: 800; color: #999; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 12px;">INSTRUMENT</div>
+                <div style="font-size: 20px; font-weight: 800; color: #fff; line-height: 1; margin-top: 8px;"><span class="metric-x">SAFE / Equity</span></div>
+              </div>
+              <div>
+                <div style="font-size: 11px; font-weight: 800; color: #999; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 12px;">RUNWAY</div>
+                <div style="font-size: 42px; font-weight: 800; color: var(--accent); line-height: 1;"><span class="metric-x">X</span> months</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════
+           13 · CLOSING
+      ══════════════════════════════════════════════ -->
+      <section id="closing" class="slide slide--grid" data-title="Closing" style="min-height: 100svh;">
+        <div class="container" style="text-align: center;">
+          <h2 class="headline-xl" style="max-width: 100%;">
+            <span data-en="We are looking for a partner to share our success." data-es="Buscamos un partner para compartir nuestro éxito.">We are looking for a partner to share our success.</span>
+          </h2>
+
+          <div style="margin-top: 96px;">
+            <p style="font-size: 18px; color: var(--muted); margin-bottom: 24px;" data-en="Let's talk" data-es="Hablemos">Hablemos</p>
+            <p style="font-size: 24px; font-weight: 700; margin-bottom: 8px;">hello@drelife.com</p>
+            <p style="font-size: 18px; color: var(--muted);">drelife.com</p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <script>
+      // Progress bar
+      const progressBar = document.querySelector('[data-progress-bar]');
+      function updateProgress() {
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight;
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const trackLength = documentHeight - windowHeight;
+        const percentScrolled = (scrollTop / trackLength) * 100;
+        progressBar.style.width = percentScrolled + '%';
+      }
+      window.addEventListener('scroll', updateProgress);
+      updateProgress();
+
+      // Section active state
+      const sections = document.querySelectorAll('.slide');
+      const navLinks = document.querySelectorAll('[data-section-link]');
+      
+      const observerOptions = {
+        root: null,
+        rootMargin: '-50% 0px -50% 0px',
+        threshold: 0
+      };
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            navLinks.forEach(link => {
+              link.classList.remove('is-active');
+              if (link.getAttribute('href') === `#${id}`) {
+                link.classList.add('is-active');
+              }
+            });
+          }
+        });
+      }, observerOptions);
+      
+      sections.forEach(section => observer.observe(section));
+
+      // Smooth scroll
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+
+      // Parallax effects (subtle)
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            const scrolled = window.pageYOffset;
+            document.documentElement.style.setProperty('--ambient-y', `${scrolled * 0.15}px`);
+            document.documentElement.style.setProperty('--grain-y', `${scrolled * 0.08}px`);
+            document.documentElement.style.setProperty('--field-x', `${scrolled * 0.02}px`);
+            document.documentElement.style.setProperty('--field-y', `${scrolled * 0.05}px`);
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+
+      // Language toggle
+      const langToggle = document.querySelector('[data-lang-toggle]');
+      let currentLang = 'es';
+      
+      function switchLanguage(lang) {
+        currentLang = lang;
+        langToggle.textContent = lang.toUpperCase();
+        
+        // Update all elements with data-en and data-es attributes
+        document.querySelectorAll('[data-en][data-es]').forEach(el => {
+          const text = el.getAttribute(`data-${lang}`);
+          if (text) {
+            el.innerHTML = text;
+          }
+        });
+        
+        // Save preference
+        localStorage.setItem('drelife-lang', lang);
+      }
+      
+      langToggle?.addEventListener('click', () => {
+        const newLang = currentLang === 'es' ? 'en' : 'es';
+        switchLanguage(newLang);
+      });
+      
+      // Load saved language preference
+      const savedLang = localStorage.getItem('drelife-lang');
+      if (savedLang && savedLang !== 'es') {
+        switchLanguage(savedLang);
+      }
+    </script>
+  </body>
 </html>
