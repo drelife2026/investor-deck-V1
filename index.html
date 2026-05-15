@@ -1136,10 +1136,13 @@
       // Language toggle
       const langToggle = document.querySelector('[data-lang-toggle]');
       let currentLang = 'es';
+      const supportedLangs = new Set(['es', 'en']);
       
       function switchLanguage(lang) {
+        if (!supportedLangs.has(lang)) return;
         currentLang = lang;
         langToggle.textContent = lang.toUpperCase();
+        document.documentElement.lang = lang;
         
         // Update all elements with data-en and data-es attributes
         document.querySelectorAll('[data-en][data-es]').forEach(el => {
@@ -1158,11 +1161,11 @@
         switchLanguage(newLang);
       });
       
-      // Load saved language preference
-      const savedLang = localStorage.getItem('drelife-lang');
-      if (savedLang && savedLang !== 'es') {
-        switchLanguage(savedLang);
-      }
+      // Initial language: URL param (?lang=es|en) takes precedence over localStorage
+      const urlLang = new URLSearchParams(window.location.search).get('lang')?.toLowerCase();
+      const savedLang = localStorage.getItem('drelife-lang')?.toLowerCase();
+      const initialLang = supportedLangs.has(urlLang) ? urlLang : (supportedLangs.has(savedLang) ? savedLang : 'es');
+      switchLanguage(initialLang);
     </script>
   </body>
 </html>
