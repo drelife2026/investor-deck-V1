@@ -18,6 +18,7 @@
         --accent: #BEFF00;
         --accent-ink: #BEFF00;
         --blue: #2377ff;
+        --coral: #ff6f3d;
         --blue-soft: #eaf2ff;
         --shadow: 0 18px 60px rgba(17,17,17,0.08);
         --ambient-y: 0px;
@@ -172,9 +173,27 @@
       .headline-md { margin: 0; font-size: 62px; font-weight: 780; line-height: 1.08; letter-spacing: -0.02em; }
       .italic      { font-style: italic; font-weight: 280; letter-spacing: -0.01em; }
       .muted       { color: #686868; }
-      .highlight   { background: var(--accent); color: var(--foreground); padding: 0 6px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+      .highlight   {
+        background: rgba(190, 255, 0, 0.38);
+        color: var(--foreground);
+        padding: 0 6px;
+        box-decoration-break: clone;
+        -webkit-box-decoration-break: clone;
+      }
 
       .sub-text { margin: 0; color: #777; font-size: 17px; font-weight: 400; line-height: 1.55; }
+      .sub-text--message {
+        margin-top: 36px !important;
+        max-width: 840px !important;
+        padding: 18px 22px;
+        border-left: 4px solid var(--blue);
+        border-radius: 10px;
+        background: linear-gradient(90deg, rgba(35,119,255,0.1), rgba(190,255,0,0.06));
+        color: #1a1a1a;
+      }
+      .sub-text--message strong {
+        color: #0e5dd1;
+      }
 
       /* ── NEON TRANSLUCENT BOX ── */
       .neon-box {
@@ -189,6 +208,60 @@
         background: rgba(190, 255, 0, 0.12);
         border: 1px solid rgba(190, 255, 0, 0.25);
         border-radius: 16px;
+      }
+      .advantage-card {
+        margin-top: 72px;
+        padding: 36px 34px;
+        border-radius: 16px;
+        border: 1px solid rgba(17,17,17,0.1);
+        background: linear-gradient(180deg, rgba(190,255,0,0.12), rgba(255,255,255,0.9));
+        box-shadow: 0 10px 30px rgba(17,17,17,0.05);
+      }
+      .advantage-card__list {
+        margin: 18px 0 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 12px;
+      }
+      .advantage-card__item {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        color: #151515;
+        font-size: 18px;
+        font-weight: 620;
+        line-height: 1.4;
+      }
+      .advantage-card__tick {
+        flex: 0 0 auto;
+        width: 22px;
+        height: 22px;
+        border-radius: 999px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(35,119,255,0.16);
+        color: #165dcc;
+        font-size: 14px;
+        font-weight: 800;
+        margin-top: 1px;
+      }
+      .founder-card {
+        padding: 36px 32px;
+        background: #ffffff;
+        border: 1px solid var(--divider);
+        border-radius: 14px;
+      }
+      .founder-avatar {
+        width: 110px;
+        height: 110px;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+        margin-bottom: 24px;
+        border: 3px solid rgba(190,255,0,0.38);
       }
 
       .lead-block { display: flex; align-items: flex-start; gap: 30px; max-width: 760px; margin-top: 72px; }
@@ -248,11 +321,11 @@
       .logo-carousel {
         position: relative;
         z-index: 1;
-        padding: 46px 0;
+        padding: 36px 0 44px;
         overflow: hidden;
         border-top: 1px solid var(--divider);
         border-bottom: 1px solid var(--divider);
-        background: transparent;
+        background: linear-gradient(90deg, rgba(190,255,0,0.1), rgba(35,119,255,0.08));
       }
       .logo-carousel__track {
         display: flex;
@@ -264,18 +337,24 @@
         display: flex;
         flex: 0 0 auto;
         align-items: center;
-        gap: 120px;
-        padding-right: 120px;
+        gap: 138px;
+        padding-right: 138px;
       }
       .logo-carousel img {
         display: block;
         width: auto;
-        height: 92px;
+        height: 164px;
         max-width: none;
         object-fit: contain;
         filter: grayscale(1) brightness(0.4);
-        opacity: 0.6;
+        opacity: 0.7;
         transition: filter 0.3s ease, opacity 0.3s ease;
+      }
+      #ecosystem { padding-bottom: 36px; }
+      #traction {
+        min-height: auto;
+        padding-top: 56px;
+        padding-bottom: 18px;
       }
       .logo-carousel img:hover {
         filter: grayscale(0) brightness(1);
@@ -424,9 +503,36 @@
         .partner-card:nth-child(n+2) {
           border-bottom: 1px solid var(--divider);
         }
-        .logo-carousel { padding: 32px 0; }
-        .logo-carousel img { height: 68px; }
-        .logo-carousel__group { gap: 80px; padding-right: 80px; }
+        .logo-carousel { padding: 28px 0 34px; }
+        .logo-carousel img { height: 120px; }
+        .logo-carousel__group { gap: 96px; padding-right: 96px; }
+        #ecosystem { padding-bottom: 26px; }
+        #traction {
+          min-height: auto;
+          padding-top: 36px;
+          padding-bottom: 8px;
+        }
+        .advantage-card {
+          margin-top: 48px;
+          padding: 24px 20px;
+        }
+        .advantage-card__item {
+          font-size: 16px;
+          line-height: 1.45;
+        }
+        .advantage-card__tick {
+          width: 20px;
+          height: 20px;
+          font-size: 12px;
+        }
+        .founder-card {
+          padding: 28px 24px;
+        }
+        .founder-avatar {
+          width: 96px;
+          height: 96px;
+          margin-bottom: 18px;
+        }
         .sub-text { font-size: 16px; }
         .lead-block { flex-direction: column; gap: 20px; }
         .accent-bar { margin-top: 0; }
@@ -479,7 +585,7 @@
         <a class="brand" href="#cover" aria-label="Drelife cover">
           <span class="brand__dot" aria-hidden="true"></span>
           <span class="brand__name">Drelife</span>
-          <span class="brand__context">&middot; Investor Deck</span>
+          <span class="brand__context">&middot; Presentación para Inversión</span>
         </a>
       </div>
       <div class="meta">
@@ -495,18 +601,18 @@
 
     <nav class="side-nav" aria-label="Presentation sections">
       <ul>
-        <li><a href="#cover" data-section-link><span>01 Cover</span><span></span></a></li>
-        <li><a href="#market" data-section-link><span>02 Market</span><span></span></a></li>
-        <li><a href="#consumer" data-section-link><span>03 Consumer</span><span></span></a></li>
-        <li><a href="#solution" data-section-link><span>04 Solution</span><span></span></a></li>
-        <li><a href="#verticals" data-section-link><span>05 Verticals</span><span></span></a></li>
-        <li><a href="#ecosystem" data-section-link><span>06 Ecosystem</span><span></span></a></li>
-        <li><a href="#traction" data-section-link><span>07 Traction</span><span></span></a></li>
-        <li><a href="#model" data-section-link><span>08 Model</span><span></span></a></li>
-        <li><a href="#competitive" data-section-link><span>10 Competitive</span><span></span></a></li>
-        <li><a href="#team" data-section-link><span>11 Team</span><span></span></a></li>
-        <li><a href="#round" data-section-link><span>12 The Round</span><span></span></a></li>
-        <li><a href="#closing" data-section-link><span>13 Closing</span><span></span></a></li>
+        <li><a href="#cover" data-section-link><span>01 Portada</span><span></span></a></li>
+        <li><a href="#market" data-section-link><span>02 Mercado</span><span></span></a></li>
+        <li><a href="#consumer" data-section-link><span>03 Consumidor</span><span></span></a></li>
+        <li><a href="#solution" data-section-link><span>04 Solución</span><span></span></a></li>
+        <li><a href="#verticals" data-section-link><span>05 Verticales</span><span></span></a></li>
+        <li><a href="#ecosystem" data-section-link><span>06 Ecosistema</span><span></span></a></li>
+        <li><a href="#traction" data-section-link><span>07 Tracción</span><span></span></a></li>
+        <li><a href="#model" data-section-link><span>08 Modelo</span><span></span></a></li>
+        <li><a href="#competitive" data-section-link><span>10 Competencia</span><span></span></a></li>
+        <li><a href="#team" data-section-link><span>11 Equipo</span><span></span></a></li>
+        <li><a href="#round" data-section-link><span>12 Ronda</span><span></span></a></li>
+        <li><a href="#closing" data-section-link><span>13 Cierre</span><span></span></a></li>
       </ul>
     </nav>
 
@@ -517,7 +623,7 @@
       ══════════════════════════════════════════════ -->
       <section id="cover" class="slide slide--grid" data-title="Cover">
         <div class="container cover-layout">
-          <div class="section-label">01 Cover</div>
+          <div class="section-label">01 Portada</div>
           <h1 class="headline-xl">
             Turning Circularity Into New Business Units for Brands
           </h1>
@@ -542,8 +648,8 @@
         <div class="container">
           <div class="section-label" data-en="02 Market Opportunity" data-es="02 Oportunidad de Mercado">02 Oportunidad de Mercado</div>
           <h2 class="headline">
-            <span data-en="Secondhand is not a trend." data-es="Secondhand is not a trend.">Secondhand is not a trend.</span><br />
-            <span data-en="It's the retail growth lever." data-es="It's the retail growth lever.">It's the retail growth lever.</span>
+            <span data-en="Secondhand is not a trend." data-es="La segunda mano no es moda.">La segunda mano no es moda.</span><br />
+            <span data-en="It's the retail growth lever." data-es="Es una palanca de crecimiento.">Es una palanca de crecimiento.</span>
           </h2>
           <p class="sub-text" style="margin-top: 32px; max-width: 720px;"
              data-en="The structural transformation is already happening and capital is moving."
@@ -601,7 +707,7 @@
             </div>
             <div class="tile">
               <div class="tile-kicker" data-en="IDENTITY" data-es="IDENTITARIO">IDENTITARIO</div>
-              <div class="stat-label" style="margin-top: 24px;" data-en="Curation over consumption" data-es="Curaduría sobre consumo">Curaduría sobre consumo</div>
+              <div class="stat-label" style="margin-top: 24px;" data-en="Choose better, not more" data-es="Elegir mejor, no comprar más">Elegir mejor, no comprar más</div>
               <div class="stat-detail" data-en="Unique, limited, and collectible matters more than new." data-es="Lo único, lo limitado y lo coleccionable pesan más que lo nuevo.">Lo único, lo limitado y lo coleccionable pesan más que lo nuevo.</div>
             </div>
             <div class="tile">
@@ -628,7 +734,7 @@
           <h2 class="headline">
             <span data-en="Drelife is the white-label infrastructure for the second life." data-es="Drelife es la infraestructura white-label de la segunda vida.">Drelife es la <span class="highlight">infraestructura<br />white-label</span> de la segunda vida.</span>
           </h2>
-          <p class="sub-text" style="margin-top: 32px; max-width: 820px;"
+          <p class="sub-text sub-text--message"
              data-en="Brands no longer build this official channel. They activate it and monetize it in weeks with our end-to-end platform that turns circularity into a profitable new business unit."
              data-es="Las marcas ya no construyen este canal oficial. Lo activan y lo monetizan en semanas con nuestra plataforma end-to-end que convierte la circularidad en una nueva unidad de negocio rentable.">
             Las marcas ya no construyen este <strong>canal oficial</strong>. Lo <strong>activan</strong> y lo <strong>monetizan</strong> en semanas con nuestra plataforma end-to-end que convierte la circularidad en una nueva unidad de negocio rentable.
@@ -636,7 +742,7 @@
 
           <div class="grid grid--two" style="margin-top: 72px; gap: 32px;">
             <div style="padding: 48px 40px; background: var(--panel); border: 1px solid var(--divider); border-radius: 12px;">
-              <div class="tile-kicker">VALUE PROPOSITION</div>
+              <div class="tile-kicker">PROPUESTA DE VALOR</div>
               <div style="margin-top: 32px; font-size: 18px; line-height: 1.7; color: var(--foreground);"
                    data-en="White-label SaaS platform that enables brands to launch and scale their full circular ecosystem from resale to repair services, returns management, and recycling without building infrastructure from scratch."
                    data-es="Plataforma SaaS white-label que permite a las marcas lanzar y escalar su ecosistema circular completo desde resale hasta servicios de reparación, gestión de devoluciones y reciclaje sin construir la infraestructura desde cero.">
@@ -644,7 +750,7 @@
               </div>
             </div>
             <div style="padding: 48px 40px; background: var(--panel); border: 1px solid var(--divider); border-radius: 12px;">
-              <div class="tile-kicker">INFRASTRUCTURE AS A SERVICE</div>
+              <div class="tile-kicker">INFRAESTRUCTURA COMO SERVICIO</div>
               <div style="margin-top: 32px; font-size: 18px; line-height: 1.7; color: var(--foreground);"
                    data-en="Plug-and-play technology stack with integrated end-to-end operations. The brand keeps full control of the channel, user experience, and first-party data."
                    data-es="Stack tecnológico plug-and-play con operaciones end-to-end integradas. La marca mantiene el control total del canal, la experiencia de usuario y los datos first-party.">
@@ -660,7 +766,7 @@
               <div class="stat-detail" style="margin-top: 16px;" data-en="vs. building in-house" data-es="vs. construir in-house">vs. construir in-house</div>
             </div>
             <div class="tile tile--hover">
-              <div class="tile-kicker">GO-LIVE</div>
+              <div class="tile-kicker">LANZAMIENTO</div>
               <div class="stat-value" style="font-size: 52px;">Semanas</div>
               <div class="stat-detail" style="margin-top: 16px;" data-en="not 18-24 months" data-es="no 18-24 meses">no 18-24 meses</div>
             </div>
@@ -700,7 +806,7 @@
               <div class="stat-label" style="margin-top: 24px; color: #ffffff; font-size: 28px;">Fashion Retail</div>
               <div class="tile-kicker" style="margin-top: 32px; color: #999;">TAM</div>
               <div class="stat-value" style="color: var(--accent); font-size: 48px;">$393B</div>
-              <div class="stat-detail" style="color: #999;">global 2030</div>
+              <div class="stat-detail" style="color: #999;">mercado global 2030</div>
               <div style="margin-top: 24px; color: #fff; font-size: 18px; font-weight: 700;">+28%</div>
               <div class="stat-detail" style="color: #999;" data-en="extra revenue / brand" data-es="ingresos extra / marca">ingresos extra / marca</div>
             </div>
@@ -709,9 +815,9 @@
               <div class="stat-label" style="margin-top: 24px; color: #ffffff; font-size: 28px;">Fan Clubs</div>
               <div class="tile-kicker" style="margin-top: 32px; color: #999;">TAM</div>
               <div class="stat-value" style="color: var(--accent); font-size: 48px;">200k</div>
-              <div class="stat-detail" style="color: #999;">MRR + 15% var.</div>
-              <div style="margin-top: 24px; color: #fff; font-size: 18px; font-weight: 700;">High-LTV</div>
-              <div class="stat-detail" style="color: #999;">fan engagement</div>
+              <div class="stat-detail" style="color: #999;"></div>
+              <div style="margin-top: 24px; color: #fff; font-size: 18px; font-weight: 700;">Alto LTV</div>
+              <div class="stat-detail" style="color: #999;">engagement de fans</div>
             </div>
           </div>
         </div>
@@ -727,10 +833,10 @@
             <span data-en="We don't go alone. We go with the industry leaders." data-es="No vamos solos. Vamos con los líderes del sector.">No vamos solos.<br />
             Vamos con los <span class="highlight">líderes del sector.</span></span>
           </h2>
-          <p class="sub-text" style="margin-top: 32px; max-width: 820px;"
+          <p class="sub-text sub-text--message"
              data-en="Native integration with the infrastructure enterprise brands already use: white-label premium experience, integrated data layer, and scalable operations with partners that validate expansion into new verticals."
-             data-es="Integración nativa con la infraestructura que ya usan las marcas enterprise: white-label premium experience, integrated data layer y operaciones escalables con partners que validan la expansión hacia nuevas verticales.">
-            Integración nativa con la infraestructura que ya usan las marcas enterprise: white-label premium experience, <strong>integrated data layer</strong> y <strong>operaciones escalables</strong> con partners que validan la expansión hacia nuevas verticales.
+             data-es="Integración nativa con la infraestructura que ya usan las marcas enterprise: experiencia premium white-label, capa de datos integrada y operaciones escalables con partners que validan la expansión hacia nuevas verticales.">
+            Integración nativa con la infraestructura que ya usan las marcas enterprise: experiencia premium white-label, <strong>capa de datos integrada</strong> y <strong>operaciones escalables</strong> con partners que validan la expansión hacia nuevas verticales.
           </p>
 
           <div class="partner-grid">
@@ -776,12 +882,12 @@
       <!-- ══════════════════════════════════════════════
            07 · TRACTION
       ══════════════════════════════════════════════ -->
-      <section id="traction" class="slide slide--soft" data-title="Traction">
-        <div class="container">
-          <div class="section-label">07 Traction</div>
+      <section id="traction" class="slide slide--soft"data-title="Traction">
+        <div class="container"> 
+          <div class="section-label">07 Tracción</div>
           <h2 class="headline">
-            "We are <span class="muted">not</span> testing.<br />
-            We are <span class="highlight">growing.</span>"
+            "No estamos <span class="muted">probando</span>.<br />
+            Estamos <span class="highlight">creciendo.</span>"
           </h2>
           <p class="sub-text" style="margin-top: 32px; max-width: 720px;"
              data-en="Leading brands that have already activated their circular channel with Drelife."
@@ -845,7 +951,7 @@
       ══════════════════════════════════════════════ -->
       <section id="model" class="slide" data-title="Model">
         <div class="container">
-          <div class="section-label">08 Business Model</div>
+          <div class="section-label">08 Modelo de Negocio</div>
           <h2 class="headline">
             <span data-en="Dual engine:" data-es="Doble motor:">Doble motor:</span><br />
             <span class="highlight" data-en="MRR + variable take-rate." data-es="MRR + take-rate variable.">MRR + take-rate variable.</span>
@@ -884,7 +990,7 @@
       ══════════════════════════════════════════════ -->
       <section id="competitive" class="slide" data-title="Competitive">
         <div class="container">
-          <div class="section-label">10 Competitive Landscape</div>
+          <div class="section-label">10 Panorama Competitivo</div>
           <h2 class="headline">
             <span data-en="We don't compete." data-es="No competimos.">No competimos.</span><br />
             <span class="highlight" data-en="We enable." data-es="Habilitamos.">Habilitamos.</span>
@@ -928,15 +1034,15 @@
             </div>
           </div>
 
-          <div class="neon-box-dark" style="margin-top: 72px;">
-            <div class="tile-kicker" style="color: #111;">DRELIFE ADVANTAGE</div>
-            <div style="margin-top: 24px; font-size: 20px; font-weight: 700; color: #111; line-height: 1.4;">
-              <strong style="color: #0a0a0a;">✓</strong> <span data-en="4 monetizable modules (Resale + Repair + Returns + Recycle)" data-es="4 módulos monetizables (Resale + Repair + Returns + Recycle)">4 módulos monetizables (Resale + Repair + Returns + Recycle)</span><br />
-              <strong style="color: #0a0a0a;">✓</strong> White-label 100% + first-party data<br />
-              <strong style="color: #0a0a0a;">✓</strong> <span data-en="Go-live in weeks, not months" data-es="Go-live en semanas, no meses">Go-live en semanas, no meses</span><br />
-              <strong style="color: #0a0a0a;">✓</strong> <span data-en="End-to-end circular operations with Bleckmann" data-es="Operaciones circulares end-to-end con Bleckmann">Operaciones circulares end-to-end con Bleckmann</span><br />
-              <strong style="color: #0a0a0a;">✓</strong> <span data-en="Only player in sports collectibles + fan clubs" data-es="Único player en sports collectibles + fan clubs">Único player en sports collectibles + fan clubs</span>
-            </div>
+          <div class="advantage-card">
+            <div class="tile-kicker" style="color: #111;">VENTAJA DRELIFE</div>
+            <ul class="advantage-card__list">
+              <li class="advantage-card__item"><span class="advantage-card__tick">✓</span><span data-en="4 monetizable modules (Resale + Repair + Returns + Recycle)" data-es="4 módulos monetizables (Resale + Repair + Returns + Recycle)">4 módulos monetizables (Resale + Repair + Returns + Recycle)</span></li>
+              <li class="advantage-card__item"><span class="advantage-card__tick">✓</span><span>White-label 100% + datos first-party</span></li>
+              <li class="advantage-card__item"><span class="advantage-card__tick">✓</span><span data-en="Go-live in weeks, not months" data-es="Go-live en semanas, no meses">Go-live en semanas, no meses</span></li>
+              <li class="advantage-card__item"><span class="advantage-card__tick">✓</span><span data-en="End-to-end circular operations with Bleckmann" data-es="Operaciones circulares end-to-end con Bleckmann">Operaciones circulares end-to-end con Bleckmann</span></li>
+              <li class="advantage-card__item"><span class="advantage-card__tick">✓</span><span data-en="Only player in sports collectibles + fan clubs" data-es="Único player en sports collectibles + fan clubs">Único player en sports collectibles + fan clubs</span></li>
+            </ul>
           </div>
         </div>
       </section>
@@ -946,7 +1052,7 @@
       ══════════════════════════════════════════════ -->
       <section id="team" class="slide slide--soft" data-title="Team">
         <div class="container">
-          <div class="section-label">11 Team</div>
+          <div class="section-label">11 Equipo</div>
           <h2 class="headline">
             <span data-en="The team building" data-es="El equipo que está">El equipo que está</span><br />
             <span class="highlight" data-en="the future" data-es="construyendo el futuro">construyendo el futuro</span><br />
@@ -959,10 +1065,8 @@
           </p>
 
           <div class="grid grid--three" style="margin-top: 72px; gap: 48px;">
-            <div style="padding: 48px 40px; background: #ffffff; border: 1px solid var(--divider); border-radius: 12px;">
-              <div style="width: 80px; height: 80px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 28px;">
-                <span style="font-size: 32px; font-weight: 800; color: #111;">AM</span>
-              </div>
+            <div class="founder-card">
+              <img class="founder-avatar" src="personas/alberto miralles.png" alt="Alberto Miralles" />
               <h3 style="font-size: 24px; font-weight: 780; line-height: 1.2; margin: 0 0 8px;">Alberto Miralles</h3>
               <div style="font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin-bottom: 20px;">CEO & CO-FUNDADOR</div>
               <p style="font-size: 15px; line-height: 1.6; color: var(--muted); margin: 0;">
@@ -970,10 +1074,8 @@
               </p>
             </div>
 
-            <div style="padding: 48px 40px; background: #ffffff; border: 1px solid var(--divider); border-radius: 12px;">
-              <div style="width: 80px; height: 80px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 28px;">
-                <span style="font-size: 32px; font-weight: 800; color: #111;">ME</span>
-              </div>
+            <div class="founder-card">
+              <img class="founder-avatar" src="personas/manel echevarria.jpeg" alt="Manel Echevarría" />
               <h3 style="font-size: 24px; font-weight: 780; line-height: 1.2; margin: 0 0 8px;">Manel Echevarría</h3>
               <div style="font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin-bottom: 20px;">CO-FUNDADOR</div>
               <p style="font-size: 15px; line-height: 1.6; color: var(--muted); margin: 0;">
@@ -981,10 +1083,8 @@
               </p>
             </div>
 
-            <div style="padding: 48px 40px; background: #ffffff; border: 1px solid var(--divider); border-radius: 12px;">
-              <div style="width: 80px; height: 80px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 28px;">
-                <span style="font-size: 32px; font-weight: 800; color: #111;">SP</span>
-              </div>
+            <div class="founder-card">
+              <img class="founder-avatar" src="personas/Samuel Patino.png" alt="Samuel Patino" />
               <h3 style="font-size: 24px; font-weight: 780; line-height: 1.2; margin: 0 0 8px;">Samuel Patino</h3>
               <div style="font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin-bottom: 20px;">CTO & CO-FUNDADOR</div>
               <p style="font-size: 15px; line-height: 1.6; color: var(--muted); margin: 0;">
@@ -1001,7 +1101,7 @@
       ══════════════════════════════════════════════ -->
       <section id="round" class="slide slide--dark" data-title="Round">
         <div class="container">
-          <div class="section-label">12 Pre-seed Round</div>
+          <div class="section-label">12 Ronda Pre-seed</div>
           <h2 class="headline" style="color: #ffffff;">
             <span data-en="Pre-seed closed." data-es="Pre-seed cerrada.">Pre-seed cerrada.</span><br />
             <span data-en="Opening" data-es="Abriendo">Abriendo</span> <span class="highlight" data-en="seed to scale." data-es="seed para escalar.">seed para escalar.</span>
@@ -1020,7 +1120,7 @@
               <div class="stat-detail" style="color: #999; margin-top: 16px;" data-en="Product in market · +10 paying clients · top-tier cap table" data-es="Producto en mercado · +10 clientes pagando · cap table top tier">Producto en mercado · +10 clientes pagando · cap table top tier</div>
             </div>
             <div style="padding: 48px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px;">
-              <div class="tile-kicker" style="color: #999;">ON THE CAP TABLE</div>
+              <div class="tile-kicker" style="color: #999;">EN EL CAP TABLE</div>
               <div style="margin-top: 32px; color: #fff; font-size: 16px; line-height: 1.8;">
                 <strong style="color: var(--accent);">STRATEGIC</strong> Barça Innovation Hub<br />
                 <strong style="color: var(--accent);">NBA</strong> Ricky Rubio<br />
@@ -1031,13 +1131,13 @@
               <div class="stat-detail" style="color: #999; margin-top: 24px;" data-en="Operators and athletes who understand the sector." data-es="Operadores y atletas que entienden el sector.">Operadores y atletas que entienden el sector.</div>
             </div>
             <div style="padding: 48px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px;">
-              <div class="tile-kicker" style="color: #999;">WHAT WE'RE OPENING</div>
+              <div class="tile-kicker" style="color: #999;">QUÉ ABRIMOS AHORA</div>
               <div style="margin-top: 32px; color: #fff; font-size: 16px; line-height: 1.8;">
-                <strong style="color: var(--accent);">01</strong> <span data-en="International sales" data-es="Sales internacional">Sales internacional</span><br />
-                <span style="color: #999; font-size: 14px;" data-en="Central EU, UK, North." data-es="EU Central, UK, Norte.">EU Central, UK, Norte.</span><br /><br />
+                <strong style="color: var(--accent);">01</strong> <span data-en="International sales" data-es="Ventas internacionales">Ventas internacionales</span><br />
+                <span style="color: #999; font-size: 14px;" data-en="Central EU, UK, North." data-es="Europa Central, Reino Unido y Norte de Europa.">Europa Central, Reino Unido y Norte de Europa.</span><br /><br />
                 <strong style="color: var(--accent);">02</strong> AI Pricing Engine<br />
-                <span style="color: #999; font-size: 14px;" data-en="Circular dynamic pricing." data-es="Pricing dinámico circular.">Pricing dinámico circular.</span><br /><br />
-                <strong style="color: var(--accent);">03</strong> <span data-en="Logistics hubs" data-es="Hubs logísticos">Hubs logísticos</span><br />
+                <span style="color: #999; font-size: 14px;" data-en="Circular dynamic pricing." data-es="pricing dinámico circular.">pricing dinámico circular.</span><br /><br />
+                <strong style="color: var(--accent);">03</strong> <span data-en="Logistics hubs" data-es="Centros logísticos">Centros logísticos</span><br />
                 <span style="color: #999; font-size: 14px;" data-en="Bleckmann in 2 new countries." data-es="Bleckmann en 2 nuevos países.">Bleckmann en 2 nuevos países.</span>
               </div>
             </div>
@@ -1052,7 +1152,7 @@
       <section id="closing" class="slide slide--grid" data-title="Closing" style="min-height: 100svh;">
         <div class="container" style="text-align: center;">
           <h2 class="headline-xl" style="max-width: 100%;">
-            <span data-en="We are looking for partners to share our success." data-es="Buscamos partners para compartir nuestro éxito.">We are looking for partners to share our success.</span>
+            <span data-en="We are looking for partners to share our success." data-es="Buscamos partners para compartir nuestro éxito.">Buscamos partners para compartir nuestro éxito.</span>
           </h2>
 
           <div style="margin-top: 96px;">
