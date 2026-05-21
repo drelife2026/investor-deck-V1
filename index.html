@@ -20,6 +20,10 @@
         --blue: #2377ff;
         --coral: #ff6f3d;
         --blue-soft: #eaf2ff;
+        --glass-bg: rgba(250, 250, 250, 0.72);
+        --glass-border: rgba(17, 17, 17, 0.14);
+        --neon-card-bg: rgba(92, 73, 50, 0.24);
+        --neon-card-border: rgba(86, 63, 38, 0.34);
         --shadow: 0 18px 60px rgba(17,17,17,0.08);
         --ambient-y: 0px;
         --grain-y: 0px;
@@ -140,7 +144,7 @@
       }
       .slide:first-of-type { border-top: 0; }
       .slide--soft { background: var(--panel); }
-      .slide--dark { background: #0a0a0a; color: #ffffff; }
+      .slide--dark { background: var(--panel); color: var(--foreground); }
 
       .slide--grid::before {
         content: "";
@@ -154,11 +158,6 @@
         width: min(1400px, calc(100% - 240px));
         margin: 0 auto;
       }
-
-      /* ── DARK SLIDE FX ── */
-      .slide--dark .section-label, .slide--dark .muted, .slide--dark .sub-text { color: #999; }
-      .slide--dark .tile { border-color: rgba(255,255,255,0.1); }
-      .slide--dark .divider { background: rgba(255,255,255,0.1); }
 
       /* ── TYPE ── */
       .section-label {
@@ -180,6 +179,13 @@
         box-decoration-break: clone;
         -webkit-box-decoration-break: clone;
       }
+      .underline-mark {
+        text-decoration: underline;
+        text-decoration-thickness: 0.12em;
+        text-underline-offset: 0.14em;
+        text-decoration-color: rgba(190,255,0,0.95);
+        text-decoration-skip-ink: none;
+      }
 
       .sub-text { margin: 0; color: #777; font-size: 17px; font-weight: 400; line-height: 1.55; }
       .sub-text--message {
@@ -198,23 +204,24 @@
       /* ── NEON TRANSLUCENT BOX ── */
       .neon-box {
         padding: 40px;
-        background: rgba(190, 255, 0, 0.08);
-        border: 1px solid rgba(190, 255, 0, 0.2);
+        background: var(--neon-card-bg);
+        border: 1px solid var(--neon-card-border);
         border-radius: 12px;
         backdrop-filter: blur(8px);
       }
       .neon-box-dark {
         padding: 56px;
-        background: rgba(190, 255, 0, 0.12);
-        border: 1px solid rgba(190, 255, 0, 0.25);
+        background: var(--neon-card-bg);
+        border: 1px solid var(--neon-card-border);
         border-radius: 16px;
       }
       .advantage-card {
         margin-top: 72px;
         padding: 36px 34px;
         border-radius: 16px;
-        border: 1px solid rgba(17,17,17,0.1);
-        background-color: transparent;
+        border: 1px solid var(--glass-border);
+        background: var(--glass-bg);
+        backdrop-filter: blur(8px);
         box-shadow: 0 10px 30px rgba(17,17,17,0.05);
       }
       .advantage-card__list {
@@ -271,9 +278,10 @@
       }
       .media-card {
         padding: 18px;
-        border: 1px solid var(--divider);
+        border: 1px solid var(--glass-border);
         border-radius: 14px;
-        background: #fff;
+        background: var(--glass-bg);
+        backdrop-filter: blur(8px);
       }
       .media-shot {
         aspect-ratio: auto;
@@ -311,14 +319,14 @@
       .tile {
         position: relative;
         min-height: 0;
-        padding: 44px 40px 44px 0;
-        background: transparent;
-        border-top: 1px solid var(--divider);
+        padding: 44px 34px;
+        background: var(--neon-card-bg);
+        backdrop-filter: blur(6px);
+        border-top: 1px solid var(--neon-card-border);
       }
       .tile:last-child { border-bottom: 1px solid var(--divider); }
       .grid--three .tile:nth-child(n+2),
       .grid--four .tile:nth-child(n+2) {
-        padding-left: 40px;
         border-left: 1px solid var(--divider);
       }
       .grid--three .tile:nth-child(-n+3),
@@ -402,8 +410,9 @@
       }
       .module-card {
         padding: 40px 32px;
-        background: var(--panel);
-        border: 1px solid var(--divider);
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        backdrop-filter: blur(8px);
         border-radius: 12px;
         transition: transform 0.24s ease, box-shadow 0.24s ease;
       }
@@ -442,12 +451,30 @@
       }
       .partner-card {
         padding: 48px 32px;
-        border-top: 1px solid var(--divider);
-        border-right: 1px solid var(--divider);
+        border-top: 1px solid var(--glass-border);
+        border-right: 1px solid var(--glass-border);
+        background: var(--glass-bg);
+        backdrop-filter: blur(8px);
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         gap: 24px;
+      }
+      .glass-card {
+        background: var(--neon-card-bg) !important;
+        border: 1px solid var(--neon-card-border) !important;
+        backdrop-filter: blur(8px);
+      }
+      #verticals .grid--two {
+        gap: 24px;
+      }
+      #verticals .tile {
+        padding: 38px 34px;
+        border: 1px solid var(--neon-card-border);
+        border-radius: 14px;
+      }
+      #verticals .grid--two .tile:nth-child(n+2) {
+        border-left: 1px solid var(--neon-card-border);
       }
       .partner-card:nth-child(5n) {
         border-right: none;
@@ -520,6 +547,10 @@
         .grid--four .tile:nth-child(n+2) {
           padding-left: 0 !important;
           border-left: none !important;
+        }
+        #verticals .tile {
+          padding: 28px 22px !important;
+          border-left: 1px solid var(--glass-border) !important;
         }
         .module-grid { grid-template-columns: 1fr; gap: 16px; }
         .partner-grid { grid-template-columns: 1fr; }
@@ -660,7 +691,7 @@
         <div class="container cover-layout">
           <div class="section-label">01 Portada</div>
           <h1 class="headline-xl">
-            Turning Circularity Into New Business Units for Brands
+            Turning Circularity Into <span class="underline-mark">New Business Units</span> for Brands
           </h1>
           <div class="lead-block cover-lead">
             <span class="accent-bar" aria-hidden="true"></span>
@@ -683,8 +714,8 @@
         <div class="container">
           <div class="section-label" data-en="02 Market Opportunity" data-es="02 Oportunidad de Mercado">02 Oportunidad de Mercado</div>
           <h2 class="headline">
-            <span data-en="Secondhand is not a trend." data-es="La segunda mano no es moda.">La segunda mano no es moda.</span><br />
-            <span data-en="It's the retail growth lever." data-es="Es una palanca de crecimiento.">Es una palanca de crecimiento.</span>
+            <span data-en="Secondhand is not a <span class='underline-mark'>trend</span>." data-es="La segunda mano no es <span class='underline-mark'>moda</span>.">La segunda mano no es <span class="underline-mark">moda</span>.</span><br />
+            <span data-en="It's the retail <span class='underline-mark'>growth lever</span>." data-es="Es una <span class='underline-mark'>palanca de crecimiento</span>.">Es una <span class="underline-mark">palanca de crecimiento</span>.</span>
           </h2>
           <p class="sub-text" style="margin-top: 32px; max-width: 720px;"
              data-en="The structural transformation is already happening and capital is moving."
@@ -725,8 +756,8 @@
         <div class="container">
           <div class="section-label" data-en="03 The New Consumer" data-es="03 El Nuevo Consumidor">03 El Nuevo Consumidor</div>
           <h2 class="headline">
-            <span data-en="New consumption habits." data-es="Nuevos hábitos de consumo.">Nuevos hábitos de consumo.</span><br />
-            <span data-en="New challenges for brands." data-es="Nuevos retos para las marcas.">Nuevos <span class="highlight">retos para las marcas.</span></span>
+            <span data-en="New <span class='underline-mark'>consumption habits</span>." data-es="Nuevos <span class='underline-mark'>hábitos de consumo</span>.">Nuevos <span class="underline-mark">hábitos de consumo</span>.</span><br />
+            <span data-en="New <span class='underline-mark'>challenges for brands</span>." data-es="Nuevos <span class='underline-mark'>retos para las marcas</span>.">Nuevos <span class="underline-mark">retos para las marcas</span>.</span>
           </h2>
           <p class="sub-text" style="margin-top: 32px; max-width: 720px;"
              data-en="Gen Z and Millennials are redefining how they buy, sell, and connect with a brand."
@@ -767,7 +798,7 @@
         <div class="container">
           <div class="section-label" data-en="04 The Solution" data-es="04 La Solución">04 La Solución</div>
           <h2 class="headline">
-            <span data-en="Drelife is the white-label infrastructure for the second life." data-es="Drelife es la infraestructura white-label de la segunda vida.">Drelife es la <span class="highlight">infraestructura<br />white-label</span> de la segunda vida.</span>
+            <span data-en="Drelife is the <span class='underline-mark'>white-label infrastructure</span> for the second life." data-es="Drelife es la <span class='underline-mark'>infraestructura white-label</span> de la segunda vida.">Drelife es la <span class="underline-mark">infraestructura white-label</span> de la segunda vida.</span>
           </h2>
           <p class="sub-text sub-text--message"
              data-en="Brands no longer build this official channel. They activate it and monetize it in weeks with our end-to-end platform that turns circularity into a profitable new business unit."
@@ -776,7 +807,7 @@
           </p>
 
           <div class="grid grid--two" style="margin-top: 72px; gap: 32px;">
-            <div style="padding: 48px 40px; background: var(--panel); border: 1px solid var(--divider); border-radius: 12px;">
+            <div class="glass-card" style="padding: 48px 40px; border-radius: 12px;">
               <div class="tile-kicker">PROPUESTA DE VALOR</div>
               <div style="margin-top: 32px; font-size: 18px; line-height: 1.7; color: var(--foreground);"
                    data-en="White-label SaaS platform that enables brands to launch and scale their full circular ecosystem from resale to repair services, returns management, and recycling without building infrastructure from scratch."
@@ -784,7 +815,7 @@
                 Plataforma <strong>SaaS white-label</strong> que permite a las marcas lanzar y escalar su ecosistema circular completo desde resale hasta servicios de reparación, gestión de devoluciones y reciclaje sin construir la infraestructura desde cero.
               </div>
             </div>
-            <div style="padding: 48px 40px; background: var(--panel); border: 1px solid var(--divider); border-radius: 12px;">
+            <div class="glass-card" style="padding: 48px 40px; border-radius: 12px;">
               <div class="tile-kicker">INFRAESTRUCTURA COMO SERVICIO</div>
               <div style="margin-top: 32px; font-size: 18px; line-height: 1.7; color: var(--foreground);"
                    data-en="Plug-and-play technology stack with integrated end-to-end operations. The brand keeps full control of the channel, user experience, and first-party data."
@@ -825,9 +856,9 @@
       <section id="verticals" class="slide slide--dark" data-title="Verticals">
         <div class="container">
           <div class="section-label" data-en="05 Blue Ocean · Sports" data-es="05 Océano Azul · Deportes">05 Océano Azul · Deportes</div>
-          <h2 class="headline" style="color: #ffffff;">
+          <h2 class="headline">
             <span data-en="Two verticals. One platform." data-es="Dos verticales. Una sola plataforma.">Dos verticales.<br />
-            Una sola <span class="highlight">plataforma.</span></span>
+            Una sola <span class="underline-mark">plataforma.</span></span>
           </h2>
           <p class="sub-text" style="margin-top: 32px; max-width: 720px;"
              data-en="Where the market already is, where it's growing fastest, and where no one has arrived yet."
@@ -836,23 +867,23 @@
           </p>
 
           <div class="grid grid--two" style="margin-top: 72px;">
-            <div class="tile" style="border-color: rgba(255,255,255,0.1);">
-              <div class="tile-kicker" style="color: #999;">01</div>
-              <div class="stat-label" style="margin-top: 24px; color: #ffffff; font-size: 28px;">Fashion Retail</div>
-              <div class="tile-kicker" style="margin-top: 32px; color: #999;">TAM</div>
+            <div class="tile">
+              <div class="tile-kicker">01</div>
+              <div class="stat-label" style="margin-top: 24px; font-size: 28px;">Fashion Retail</div>
+              <div class="tile-kicker" style="margin-top: 32px;">TAM</div>
               <div class="stat-value" style="color: var(--accent); font-size: 48px;">$393B</div>
-              <div class="stat-detail" style="color: #999;">mercado global 2030</div>
-              <div style="margin-top: 24px; color: #fff; font-size: 18px; font-weight: 700;">+28%</div>
-              <div class="stat-detail" style="color: #999;" data-en="extra revenue / brand" data-es="ingresos extra / marca">ingresos extra / marca</div>
+              <div class="stat-detail">mercado global 2030</div>
+              <div style="margin-top: 24px; font-size: 18px; font-weight: 700;">+28%</div>
+              <div class="stat-detail" data-en="extra revenue / brand" data-es="ingresos extra / marca">ingresos extra / marca</div>
             </div>
-            <div class="tile" style="border-color: rgba(255,255,255,0.1);">
-              <div class="tile-kicker" style="color: #999;">02</div>
-              <div class="stat-label" style="margin-top: 24px; color: #ffffff; font-size: 28px;">Fan Clubs</div>
-              <div class="tile-kicker" style="margin-top: 32px; color: #999;">TAM</div>
+            <div class="tile">
+              <div class="tile-kicker">02</div>
+              <div class="stat-label" style="margin-top: 24px; font-size: 28px;">Fan Clubs</div>
+              <div class="tile-kicker" style="margin-top: 32px;">TAM</div>
               <div class="stat-value" style="color: var(--accent); font-size: 48px;">200k</div>
-              <div class="stat-detail" style="color: #999;"></div>
-              <div style="margin-top: 24px; color: #fff; font-size: 18px; font-weight: 700;">Alto LTV</div>
-              <div class="stat-detail" style="color: #999;">engagement de fans</div>
+              <div class="stat-detail"></div>
+              <div style="margin-top: 24px; font-size: 18px; font-weight: 700;">Alto LTV</div>
+              <div class="stat-detail">engagement de fans</div>
             </div>
           </div>
         </div>
@@ -866,7 +897,7 @@
           <div class="section-label" data-en="06 Ecosystem" data-es="06 Ecosistema">06 Ecosistema</div>
           <h2 class="headline">
             <span data-en="We don't go alone. We go with the industry leaders." data-es="No vamos solos. Vamos con los líderes del sector.">No vamos solos.<br />
-            Vamos con los <span class="highlight">líderes del sector.</span></span>
+            Vamos con los <span class="underline-mark">líderes del sector.</span></span>
           </h2>
           <p class="sub-text sub-text--message"
              data-en="Native integration with the infrastructure enterprise brands already use: white-label premium experience, integrated data layer, and scalable operations with partners that validate expansion into new verticals."
@@ -922,7 +953,7 @@
           <div class="section-label">07 Tracción</div>
           <h2 class="headline">
             "No estamos <span class="muted">probando</span>.<br />
-            Estamos <span class="highlight">creciendo.</span>"
+            Estamos <span class="underline-mark">creciendo.</span>"
           </h2>
           <p class="sub-text" style="margin-top: 32px; max-width: 720px;"
              data-en="Leading brands that have already activated their circular channel with Drelife."
@@ -988,8 +1019,8 @@
         <div class="container">
           <div class="section-label">08 Modelo de Negocio</div>
           <h2 class="headline">
-            <span data-en="Dual engine:" data-es="Doble motor:">Doble motor:</span><br />
-            <span class="highlight" data-en="MRR + variable take-rate." data-es="MRR + take-rate variable.">MRR + take-rate variable.</span>
+            <span data-en="<span class='underline-mark'>Dual engine</span>:" data-es="<span class='underline-mark'>Doble motor</span>:"><span class="underline-mark">Doble motor</span>:</span><br />
+            <span class="underline-mark" data-en="MRR + variable take-rate." data-es="MRR + take-rate variable.">MRR + take-rate variable.</span>
           </h2>
           <p class="sub-text" style="margin-top: 32px; max-width: 720px;"
              data-en="Predictable recurring revenue plus linear upside tied to each client's circular volume."
@@ -1004,11 +1035,11 @@
               <div class="stat-label" style="color: #111; margin-top: 20px;" data-en="/ month, by tier and vertical." data-es="/ mes, según tier y vertical.">/ mes, según tier y vertical.</div>
               <div class="stat-detail" style="color: #111; margin-top: 16px; opacity: 0.7;" data-en="Retail Tiers (T1 / T2 / T3) by revenue · Fan Clubs: fixed 10k€ MRR" data-es="Retail Tiers (T1 / T2 / T3) por facturación · Fan Clubs: 10k€ MRR fijo">Retail Tiers (T1 / T2 / T3) por facturación · Fan Clubs: 10k€ MRR fijo</div>
             </div>
-            <div style="padding: 56px; background: #0a0a0a; border-radius: 16px; color: #fff;">
-              <div class="tile-kicker" style="color: #999;">02 / VARIABLE (TAKE-RATE)</div>
+            <div class="glass-card" style="padding: 56px; border-radius: 16px; color: var(--foreground);">
+              <div class="tile-kicker">02 / VARIABLE (TAKE-RATE)</div>
               <div class="stat-value" style="margin-top: 32px; color: var(--accent); font-size: 64px;">10% – 15%</div>
-              <div class="stat-label" style="color: #fff; margin-top: 20px;" data-en="on each circular transaction on platform." data-es="sobre cada transacción circular en plataforma.">sobre cada transacción circular en plataforma.</div>
-              <div class="stat-detail" style="color: #999; margin-top: 16px;">Resale 15% · Repair 10% · Recycle 15% · Returns variable</div>
+              <div class="stat-label" style="margin-top: 20px;" data-en="on each circular transaction on platform." data-es="sobre cada transacción circular en plataforma.">sobre cada transacción circular en plataforma.</div>
+              <div class="stat-detail" style="margin-top: 16px;">Resale 15% · Repair 10% · Recycle 15% · Returns variable</div>
             </div>
           </div>
 
@@ -1027,8 +1058,8 @@
         <div class="container">
           <div class="section-label">10 Panorama Competitivo</div>
           <h2 class="headline">
-            <span data-en="We don't compete." data-es="No competimos.">No competimos.</span><br />
-            <span class="highlight" data-en="We enable." data-es="Habilitamos.">Habilitamos.</span>
+            <span data-en="We don't <span class='underline-mark'>compete</span>." data-es="No <span class='underline-mark'>competimos</span>.">No <span class="underline-mark">competimos</span>.</span><br />
+            <span class="underline-mark" data-en="We enable." data-es="Habilitamos.">Habilitamos.</span>
           </h2>
           <p class="sub-text" style="margin-top: 32px; max-width: 720px;"
              data-en="Alternatives require massive CAPEX, long time-to-market, or giving up channel control. Drelife is the only end-to-end white-label infrastructure."
@@ -1089,8 +1120,8 @@
         <div class="container">
           <div class="section-label">11 Equipo</div>
           <h2 class="headline">
-            <span data-en="The team building" data-es="El equipo que está">El equipo que está</span><br />
-            <span class="highlight" data-en="the future" data-es="construyendo el futuro">construyendo el futuro</span><br />
+            <span data-en="The team <span class='underline-mark'>building</span>" data-es="El equipo que <span class='underline-mark'>está</span>">El equipo que <span class="underline-mark">está</span></span><br />
+            <span class="underline-mark" data-en="the future" data-es="construyendo el futuro">construyendo el futuro</span><br />
             <span data-en="of circularity." data-es="de la circularidad.">de la circularidad.</span>
           </h2>
           <p class="sub-text" style="margin-top: 32px; max-width: 720px;"
@@ -1137,9 +1168,9 @@
       <section id="round" class="slide slide--dark" data-title="Round">
         <div class="container">
           <div class="section-label">12 Ronda Pre-seed</div>
-          <h2 class="headline" style="color: #ffffff;">
-            <span data-en="Pre-seed closed." data-es="Pre-seed cerrada.">Pre-seed cerrada.</span><br />
-            <span data-en="Opening" data-es="Abriendo">Abriendo</span> <span class="highlight" data-en="seed to scale." data-es="seed para escalar.">seed para escalar.</span>
+          <h2 class="headline">
+            <span data-en="<span class='underline-mark'>Pre-seed</span> closed." data-es="<span class='underline-mark'>Pre-seed</span> cerrada."><span class="underline-mark">Pre-seed</span> cerrada.</span><br />
+            <span data-en="Opening" data-es="Abriendo">Abriendo</span> <span class="underline-mark" data-en="seed to scale." data-es="seed para escalar.">seed para escalar.</span>
           </h2>
           <p class="sub-text" style="margin-top: 32px; max-width: 720px;"
              data-en="Backed by a high-performance cap table. Adding partners that accelerate expansion."
@@ -1148,32 +1179,32 @@
           </p>
 
           <div class="grid grid--three" style="margin-top: 72px; gap: 48px;">
-            <div style="padding: 48px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px;">
-              <div class="tile-kicker" style="color: #999;" data-en="PRE-SEED CLOSED" data-es="PRE-SEED CERRADA">PRE-SEED CERRADA</div>
+            <div class="glass-card" style="padding: 48px; border-radius: 16px;">
+              <div class="tile-kicker" data-en="PRE-SEED CLOSED" data-es="PRE-SEED CERRADA">PRE-SEED CERRADA</div>
               <div class="stat-value" style="margin-top: 32px; color: var(--accent); font-size: 72px;">750K</div>
-              <div class="stat-label" style="color: #fff; margin-top: 20px;" data-en="round completed in 2025." data-es="ronda completada en 2025.">ronda completada en 2025.</div>
-              <div class="stat-detail" style="color: #999; margin-top: 16px;" data-en="Product in market · +10 paying clients · top-tier cap table" data-es="Producto en mercado · +10 clientes pagando · cap table top tier">Producto en mercado · +10 clientes pagando · cap table top tier</div>
+              <div class="stat-label" style="margin-top: 20px;" data-en="round completed in 2025." data-es="ronda completada en 2025.">ronda completada en 2025.</div>
+              <div class="stat-detail" style="margin-top: 16px;" data-en="Product in market · +10 paying clients · top-tier cap table" data-es="Producto en mercado · +10 clientes pagando · cap table top tier">Producto en mercado · +10 clientes pagando · cap table top tier</div>
             </div>
-            <div style="padding: 48px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px;">
-              <div class="tile-kicker" style="color: #999;">EN EL CAP TABLE</div>
-              <div style="margin-top: 32px; color: #fff; font-size: 16px; line-height: 1.8;">
+            <div class="glass-card" style="padding: 48px; border-radius: 16px;">
+              <div class="tile-kicker">EN EL CAP TABLE</div>
+              <div style="margin-top: 32px; color: var(--foreground); font-size: 16px; line-height: 1.8;">
                 <strong style="color: var(--accent);">STRATEGIC</strong> Barça Innovation Hub<br />
                 <strong style="color: var(--accent);">NBA</strong> Ricky Rubio<br />
                 <strong style="color: var(--accent);">PGA</strong> Rafa Cabrera<br />
                 <strong style="color: var(--accent);">NETWORK</strong> ESADE BAN<br />
                 <strong style="color: var(--accent);">LIDERS IN OPERTIONS</strong> Manel Jiménez (TENDAM) y Víctor del Pozo (Veepee)
               </div>
-              <div class="stat-detail" style="color: #999; margin-top: 24px;" data-en="Operators and athletes who understand the sector." data-es="Operadores y atletas que entienden el sector.">Operadores y atletas que entienden el sector.</div>
+              <div class="stat-detail" style="margin-top: 24px;" data-en="Operators and athletes who understand the sector." data-es="Operadores y atletas que entienden el sector.">Operadores y atletas que entienden el sector.</div>
             </div>
-            <div style="padding: 48px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px;">
-              <div class="tile-kicker" style="color: #999;">QUÉ ABRIMOS AHORA</div>
-              <div style="margin-top: 32px; color: #fff; font-size: 16px; line-height: 1.8;">
+            <div class="glass-card" style="padding: 48px; border-radius: 16px;">
+              <div class="tile-kicker">QUÉ ABRIMOS AHORA</div>
+              <div style="margin-top: 32px; color: var(--foreground); font-size: 16px; line-height: 1.8;">
                 <strong style="color: var(--accent);">01</strong> <span data-en="International sales" data-es="Ventas internacionales">Ventas internacionales</span><br />
-                <span style="color: #999; font-size: 14px;" data-en="Central EU, UK, North." data-es="Europa Central, Reino Unido y Norte de Europa.">Europa Central, Reino Unido y Norte de Europa.</span><br /><br />
+                <span style="color: var(--muted); font-size: 14px;" data-en="Central EU, UK, North." data-es="Europa Central, Reino Unido y Norte de Europa.">Europa Central, Reino Unido y Norte de Europa.</span><br /><br />
                 <strong style="color: var(--accent);">02</strong> AI Pricing Engine<br />
-                <span style="color: #999; font-size: 14px;" data-en="Circular dynamic pricing." data-es="pricing dinámico circular.">pricing dinámico circular.</span><br /><br />
+                <span style="color: var(--muted); font-size: 14px;" data-en="Circular dynamic pricing." data-es="pricing dinámico circular.">pricing dinámico circular.</span><br /><br />
                 <strong style="color: var(--accent);">03</strong> <span data-en="Logistics hubs" data-es="Centros logísticos">Centros logísticos</span><br />
-                <span style="color: #999; font-size: 14px;" data-en="Bleckmann in 2 new countries." data-es="Bleckmann en 2 nuevos países.">Bleckmann en 2 nuevos países.</span>
+                <span style="color: var(--muted); font-size: 14px;" data-en="Bleckmann in 2 new countries." data-es="Bleckmann en 2 nuevos países.">Bleckmann en 2 nuevos países.</span>
               </div>
             </div>
           </div>
@@ -1188,7 +1219,7 @@
         <div class="container">
           <div class="section-label" data-en="13 Media Coverage" data-es="13 Medios">13 Medios</div>
           <h2 class="headline">
-            <span data-en="Featured in key media." data-es="Presencia en medios clave.">Presencia en medios clave.</span>
+            <span data-en="Featured in <span class='underline-mark'>key media</span>." data-es="Presencia en <span class='underline-mark'>medios clave</span>.">Presencia en <span class="underline-mark">medios clave</span>.</span>
           </h2>
 
           <div class="media-grid">
@@ -1217,7 +1248,7 @@
       <section id="closing" class="slide slide--grid" data-title="Closing" style="min-height: 100svh;">
         <div class="container" style="text-align: center;">
           <h2 class="headline-xl" style="max-width: 100%;">
-            <span data-en="We are looking for partners to share our success." data-es="Buscamos partners para compartir nuestro éxito.">Buscamos partners para compartir nuestro éxito.</span>
+            <span data-en="We are looking for partners to <span class='underline-mark'>share our success</span>." data-es="Buscamos partners para <span class='underline-mark'>compartir nuestro éxito</span>.">Buscamos partners para <span class="underline-mark">compartir nuestro éxito</span>.</span>
           </h2>
 
           <div style="margin-top: 96px;">
